@@ -22,12 +22,11 @@
   "about": {
     "title": "About Me",
     "description": "Passionate about finance and accounting, I am currently a Master 2 student in Financial & Accounting Management at ENCG Fès. My academic background and professional experiences have allowed me to develop solid expertise in these fields.",
-    "detailedDescription": "Holder of a Baccalaureate in Management, Economics and Management with Good Mention, I continued my higher education at the National School of Commerce and Management of Fès where I am currently preparing my Master's in Financial & Accounting Management. My journey is marked by a constant passion for academic and professional excellence.",
+    "detailedDescription": "Holder of a Baccalaureate in Management, Economics and Management with Good Mention, I continued my higher education at the National School of Commerce and Management of Fès where I am currently preparing my Master's in Financial & Accounting Management.",
     "keyPoints": [
       "Practical experience in public and private sectors",
       "Leadership and associative engagement",
       "Volunteer for the Africa Cup of Nations Morocco 2025",
-      "Passion for academic and professional excellence",
       "Commitment to projects with social impact"
     ],
     "valuesTitle": "My Values",
@@ -289,8 +288,8 @@
   },
   "contact": {
     "title": "Contact",
-    "email": "moustapha.fall@example.com",
-    "phone": "+33 6 12 34 56 78",
+    "email": "moustapha26689@gmail.com",
+    "phone": "+212 710-928562",
     "whatsapp": "+212710928562",
     "linkedin": "https://www.linkedin.com/in/mouhamadou-moustapha-fall-65283a291/",
     "location": "Fès, Morocco",
