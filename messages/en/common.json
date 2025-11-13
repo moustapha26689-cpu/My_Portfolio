@@ -1,0 +1,306 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "certifications": "Certifications",
+    "volunteer": "Volunteer",
+    "awards": "Awards",
+    "testScores": "Test Scores",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Mouhamadou Moustapha Fall",
+    "subtitle": "MSc Student in Financial & Accounting Management",
+    "ctaPrimary": "Learn More",
+    "ctaSecondary": "My Journey",
+    "quote": "Together we can grow professionally."
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Passionate about finance and accounting, I am currently a Master 2 student in Financial & Accounting Management at ENCG Fès. My academic background and professional experiences have allowed me to develop solid expertise in these fields.",
+    "detailedDescription": "Holder of a Baccalaureate in Management, Economics and Management with Good Mention, I continued my higher education at the National School of Commerce and Management of Fès where I am currently preparing my Master's in Financial & Accounting Management. My journey is marked by a constant passion for academic and professional excellence.",
+    "keyPoints": [
+      "Practical experience in public and private sectors",
+      "Leadership and associative engagement",
+      "Volunteer for the Africa Cup of Nations Morocco 2025",
+      "Passion for academic and professional excellence",
+      "Commitment to projects with social impact"
+    ],
+    "valuesTitle": "My Values",
+    "values": [
+      "Excellence and professional rigor",
+      "Integrity and ethics",
+      "Innovation and adaptation",
+      "Collaboration and teamwork",
+      "Commitment and social responsibility"
+    ],
+    "objectivesTitle": "My Objectives",
+    "objectives": "My ambition is to become a Chartered Accountant and Statutory Auditor. I wish to acquire the necessary skills to support companies in their financial management, ensure the compliance of their accounts and contribute to financial transparency. My goal is to become a recognized professional, capable of providing high-level expertise and playing a key role in economic development."
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "items": [
+      {
+        "title": "Accounting Assistant",
+        "company": "Fidu Soumaya",
+        "period": "May 2025 (1 mo)",
+        "location": "Fès, Fès-Meknès, Morocco · On-site",
+        "description": "Entry and posting of accounting entries (purchase invoices, sales, and various operations). Systematic execution of bank reconciliations and account matching for accurate and controlled treasury.",
+        "detailedDescription": "During this 1-month internship at Fidu Soumaya, I had the opportunity to immerse myself in the world of professional accounting. I managed the entire client accounting cycle using Synergie software, which allowed me to master the processes of entry, posting, and control of accounting entries. I was also responsible for monthly bank reconciliations and account matching, ensuring precise and controlled treasury. One of my main achievements was the preparation and electronic submission of periodic VAT declarations, contributing to the company's tax compliance.",
+        "details": [
+          "Complete management of client accounting cycle with Synergie",
+          "Monthly bank reconciliations",
+          "Electronic submission of VAT declarations",
+          "Automatic and manual account matching",
+          "Control and validation of accounting documents"
+        ],
+        "technologies": ["Synergie", "Excel", "General Accounting"],
+        "images": ["/images/experiences/fidu-soumaya/moi-1.jpg"],
+        "videos": ["/media/experiences/fidu-soumaya/moi-2.mp4"],
+        "attestationUrl": "/images/attestations/fidu-soumaya/attestation.pdf",
+        "attestationImage": ""
+      },
+      {
+        "title": "Administrative and Financial Assistant",
+        "company": "General Treasury of the Kingdom",
+        "period": "Jan 2025 (1 mo)",
+        "location": "Fès, Fès-Meknès, Morocco · On-site",
+        "description": "Daily management and control of the Cashier (receipts, disbursements) and rigorous monitoring of operations. Preparation and compliance of accounting entries before their integration into the State's financial circuits.",
+        "detailedDescription": "This internship at the General Treasury of the Kingdom offered me a unique experience in the public sector. I was responsible for daily cash management, performing receipts and disbursements with absolute rigor. I also learned to use specialized State information systems (GIR, SIAB, GID) for managing revenues, banking activities, and expenses. My role was to technically prepare accounting entries and ensure their compliance with public standards before their integration into the State's financial circuits. This experience allowed me to understand the specifics of public accounting and the importance of traceability in public finances.",
+        "details": [
+          "Daily cash management (receipts/disbursements)",
+          "Use of GIR, SIAB, and GID systems",
+          "Preparation of accounting entries for the State",
+          "Compliance control with public standards",
+          "Rigorous monitoring of financial operations"
+        ],
+        "technologies": ["GIR", "SIAB", "GID", "Public Accounting"],
+        "images": ["/images/experiences/tresorerie-generale/moi-1.jpg"],
+        "attestationUrl": "/images/attestations/tresorerie-generale/attestation.pdf",
+        "attestationImage": ""
+      },
+      {
+        "title": "Business Strategy Internship",
+        "company": "Institute of Transformation Arts",
+        "period": "Dec 2024 - Feb 2025 (3 mos)",
+        "location": "Paris, Île-de-France, France · Remote",
+        "description": "Ensure the promotion and management of services as an authorized representative, providing solutions adapted to the specific needs of the African market.",
+        "attestationUrl": "/images/attestations/institut-transformation/attestation.pdf"
+      },
+      {
+        "title": "Accounting Assistant",
+        "company": "Defi expertise",
+        "period": "May 2024 - Jun 2024 (1 mo)",
+        "location": "Beauséjour, Casablanca, Morocco · On-site",
+        "description": "Entry of accounting entries (purchases, sales, OD) using professional software. Organization of supporting documents. Management of VAT refund files. Bank reconciliations.",
+        "images": ["/images/experiences/defi-expertise/moi-1.jpg"],
+        "attestationUrl": "/images/attestations/defi-expertise/attestation.pdf"
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "degree": "Master, Financial & Accounting Management",
+        "school": "National School of Commerce and Management of Fès (ENCG FES)",
+        "period": "Sep 2021 - Jul 2026"
+      },
+      {
+        "degree": "Baccalaureate, Management, Economics and Management",
+        "school": "Technical and Commercial High School el hadji abdoulaye niass",
+        "period": "Oct 2018 - Jul 2021",
+        "grade": "GOOD MENTION",
+        "note": "Valedictorian in final year"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "items": [
+      {
+        "name": "Accounting",
+        "level": "5"
+      },
+      {
+        "name": "Financial Analysis",
+        "level": "5"
+      },
+      {
+        "name": "Internal Controls",
+        "level": "4"
+      },
+      {
+        "name": "Microsoft Excel",
+        "level": "5",
+        "iconUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/microsoftexcel.svg"
+      },
+      {
+        "name": "Microsoft Power BI",
+        "level": "4",
+        "iconUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg"
+      },
+      {
+        "name": "Data Integration",
+        "level": "4"
+      },
+      {
+        "name": "Business Financing",
+        "level": "4"
+      },
+      {
+        "name": "Finance",
+        "level": "5"
+      }
+    ]
+  },
+  "certifications": {
+    "title": "Certifications",
+    "items": [
+      {
+        "name": "EF SET English Certificate 53/100 (B2 Upper Intermediate)",
+        "issuer": "EF SET",
+        "date": "Nov 2025",
+        "credentialId": "",
+        "documentUrl": "/images/certifications/ef-set/certificate.pdf",
+        "imageUrl": ""
+      },
+      {
+        "name": "Excel: Integrate data into Power BI",
+        "issuer": "LinkedIn",
+        "date": "Nov 2025",
+        "credentialId": "",
+        "skills": "Microsoft Power BI · Microsoft Excel · Data Integration",
+        "documentUrl": "/images/certifications/linkedin-excel/certificate.pdf",
+        "imageUrl": ""
+      },
+      {
+        "name": "The fundamentals of finance (2021)",
+        "issuer": "LinkedIn",
+        "date": "Nov 2025",
+        "credentialId": "",
+        "skills": "Finance",
+        "documentUrl": "/images/certifications/linkedin-finance/certificate.pdf",
+        "imageUrl": ""
+      }
+    ]
+  },
+  "awards": {
+    "title": "Awards",
+    "items": []
+  },
+  "testScores": {
+    "title": "Test Scores",
+    "items": [
+      {
+        "test": "Technical Certificate (BT) in Accounting",
+        "score": "Fairly Good Mention",
+        "date": "Jul 2021",
+        "details": "Technical and Commercial High School el hadji abdoulaye niass"
+      },
+      {
+        "test": "Vocational Training Certificate (BEP) in Accounting",
+        "score": "Fairly Good Mention",
+        "date": "Jul 2020",
+        "details": "Technical and Commercial High School el hadji abdoulaye niass"
+      }
+    ]
+  },
+  "volunteer": {
+    "title": "Engagement & Leadership",
+    "aboutEngagement": "About this engagement",
+    "missionsAndResponsibilities": "Missions and responsibilities",
+    "items": [
+      {
+        "role": "President UDEI-ENCG FES",
+        "organization": "National School of Commerce and Management of Fès (ENCG FES)",
+        "period": "Sep 2022 - Aug 2024 (2 yrs)",
+        "description": "President of the International Students Union at ENCG Fès",
+        "detailedDescription": "As President of the International Students Union at ENCG Fès, I led an organization representing the interests of over 500 international students. My responsibilities included organizing cultural events, mediating between students and administration, and promoting integration and diversity on campus.",
+        "category": "Civil Rights and Social Action",
+        "achievements": [
+          "Organized 10+ annual cultural events",
+          "Increased student participation by 40%",
+          "Created a mentoring program for new students",
+          "Successfully mediated 20+ student-administration conflicts"
+        ],
+        "images": ["/images/volunteer/udei-encg/moi-1.jpg"]
+      },
+      {
+        "role": "President ECOGEST LTCEAN CLUB",
+        "organization": "Ecogest",
+        "period": "Sep 2020 - Oct 2021 (1 yr 2 mos)",
+        "description": "President of the economics and management club",
+        "detailedDescription": "At the head of ECOGEST Club, I developed and animated educational and professional activities for economics and management students. I organized conferences, practical workshops, and academic competitions that enriched the educational experience of over 200 members.",
+        "category": "Education",
+        "achievements": [
+          "Organized 5 conferences with professionals",
+          "Created a monthly practical workshop program",
+          "Participated in inter-institutional competitions",
+          "Developed a network of 200+ active members"
+        ],
+        "images": []
+      },
+      {
+        "role": "Secretary General",
+        "organization": "General Union of Senegalese Pupils, Students and Interns in Morocco - Meknès Regional Section",
+        "period": "Oct 2024 - Nov 2025 (1 yr 2 mos)",
+        "description": "FES SECTION",
+        "detailedDescription": "As Secretary General of UGESM Fès Section, I coordinated the administrative and organizational activities of the association. I managed internal and external communication, organized community events, and represented the association in various regional bodies.",
+        "category": "Social Services",
+        "achievements": [
+          "Coordinated 8 major community events",
+          "Efficient administrative management of the association",
+          "Strengthened community ties",
+          "Representation in regional bodies"
+        ],
+        "images": ["/images/volunteer/ugesm/moi-1.jpg", "/images/volunteer/ugesm/moi-2.jpg"],
+        "videos": ["/media/volunteer/ugesm/moi-3.mp4"]
+      },
+      {
+        "role": "CAN 2025 Volunteer",
+        "organization": "Royal Moroccan Football Federation (FRMF) - Africa Cup of Nations Morocco 2025",
+        "period": "Dec 2025 - Jan 2026",
+        "description": "Official volunteer program for the Africa Cup of Nations Morocco 2025",
+        "detailedDescription": "Selected among 4000 volunteers to participate in the official program of the Africa Cup of Nations Morocco 2025 organized by FRMF and CAF. This prestigious tournament will take place from December 21, 2025 to January 18, 2026 in 6 cities and 9 stadiums in Morocco. As a volunteer, I will contribute to various organizational aspects of the tournament, including media activities, accreditations, hospitality, welcoming supporters.",
+        "category": "Sports Events",
+        "achievements": [
+          "Selected among 4000 candidates",
+          "Participation in a major continental event",
+          "Contribution to organizing an international tournament",
+          "Welcoming fans and visitors"
+        ],
+        "images": []
+      }
+    ]
+  },
+  "gallery": {
+    "title": "Gallery",
+    "items": [
+      {
+        "alt": "Project image",
+        "caption": "Image description"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "email": "moustapha.fall@example.com",
+    "phone": "+33 6 12 34 56 78",
+    "whatsapp": "+212710928562",
+    "linkedin": "https://www.linkedin.com/in/mouhamadou-moustapha-fall-65283a291/",
+    "location": "Fès, Morocco",
+    "availability": "Available for opportunities",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "locationLabel": "Location",
+    "availabilityLabel": "Availability",
+    "popupTitle": "Would you like to get in touch?",
+    "popupMessage": "Choose your preferred way to contact me",
+    "popupDismiss": "Maybe later"
+  }
+}
