@@ -56,15 +56,15 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-4 md:inset-8 lg:inset-16 z-50 overflow-y-auto"
+            className="fixed inset-2 sm:inset-4 md:inset-8 lg:inset-16 z-50 overflow-y-auto"
           >
-            <div className="min-h-full flex items-center justify-center p-4">
+            <div className="min-h-full flex items-center justify-center p-2 sm:p-4">
               <motion.div
                 layout
-                className="relative w-full max-w-5xl bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden"
+                className="relative w-full max-w-5xl bg-white dark:bg-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden"
               >
                 {/* Header avec gradient */}
-                <div className="relative bg-gradient-to-r from-slate-700 via-slate-800 to-indigo-700 dark:from-slate-600 dark:via-slate-700 dark:to-indigo-600 p-8">
+                <div className="relative bg-gradient-to-r from-slate-700 via-slate-800 to-indigo-700 dark:from-slate-600 dark:via-slate-700 dark:to-indigo-600 p-4 sm:p-6 md:p-8">
                   <button
                     onClick={onClose}
                     className="absolute top-4 right-4 p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors"
@@ -72,24 +72,24 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                     <XMarkIcon className="w-6 h-6 text-white" />
                   </button>
                   
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 pr-12">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 pr-10 sm:pr-12">
                     {experience.title}
                   </h2>
                   {experience.company && (
-                    <p className="text-xl text-white/90">{experience.company}</p>
+                    <p className="text-base sm:text-lg md:text-xl text-white/90">{experience.company}</p>
                   )}
-                  <div className="flex flex-wrap gap-4 mt-4 text-white/80">
+                  <div className="flex flex-wrap gap-2 sm:gap-4 mt-3 sm:mt-4 text-sm sm:text-base text-white/80">
                     <span>{experience.period}</span>
                     {experience.location && <span>• {experience.location}</span>}
                   </div>
                 </div>
 
                 {/* Contenu scrollable */}
-                <div className="p-8 max-h-[calc(100vh-200px)] overflow-y-auto">
+                <div className="p-4 sm:p-6 md:p-8 max-h-[calc(100vh-120px)] sm:max-h-[calc(100vh-200px)] overflow-y-auto">
                   {/* Galerie en premier pour être visible immédiatement */}
                   {((experience.images && experience.images.length > 0) || (experience.videos && experience.videos.length > 0)) && (
                     <div className="mb-8">
-                      <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
                         Galerie
                       </h3>
                       
@@ -159,7 +159,7 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                   {/* Description détaillée */}
                   {experience.detailedDescription && (
                     <div className="mb-8">
-                      <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
                         À propos de cette expérience
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
@@ -180,7 +180,7 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                   {/* Détails / Responsabilités */}
                   {experience.details && experience.details.length > 0 && (
                     <div className="mb-8">
-                      <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
                         Responsabilités principales
                       </h3>
                       <ul className="space-y-3">
@@ -203,7 +203,7 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                   {/* Technologies */}
                   {experience.technologies && experience.technologies.length > 0 && (
                     <div className="mb-8">
-                      <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
                         Technologies & Outils utilisés
                       </h3>
                       <div className="flex flex-wrap gap-3">
@@ -225,8 +225,8 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                   {/* Attestation de stage */}
                   {(experience.attestationUrl || experience.attestationImage) && (
                     <div className="mb-8">
-                      <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white flex items-center">
-                        <DocumentTextIcon className="w-6 h-6 mr-2 text-slate-600 dark:text-slate-400" />
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white flex items-center">
+                        <DocumentTextIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-slate-600 dark:text-slate-400" />
                         Attestation de stage
                       </h3>
                       

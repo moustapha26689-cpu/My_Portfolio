@@ -148,7 +148,7 @@ export default function Navbar() {
 
       {/* Navigation Mobile - Scroll horizontal */}
       <div className="lg:hidden border-t border-gray-200/50 dark:border-gray-800/50">
-        <div className="flex items-center space-x-2 px-4 py-2 overflow-x-auto scrollbar-hide">
+        <div className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-4 py-2 overflow-x-auto scrollbar-hide">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.href;
@@ -161,14 +161,14 @@ export default function Navbar() {
                 smooth={true}
                 offset={-100}
                 duration={500}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 cursor-pointer whitespace-nowrap ${
+                className={`flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-lg font-medium transition-all duration-300 cursor-pointer whitespace-nowrap text-xs sm:text-sm ${
                   isActive
                     ? 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/50'
                     : 'text-gray-700 dark:text-gray-300 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
               >
-                <Icon className="w-4 h-4" />
-                <span className="text-sm">{t(item.key)}</span>
+                <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span>{t(item.key)}</span>
               </Link>
             );
           })}

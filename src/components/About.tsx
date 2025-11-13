@@ -69,7 +69,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-slate-700 via-slate-800 to-indigo-700 dark:from-slate-300 dark:via-slate-200 dark:to-indigo-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-slate-700 via-slate-800 to-indigo-700 dark:from-slate-300 dark:via-slate-200 dark:to-indigo-400 bg-clip-text text-transparent px-4">
             {t('title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-slate-600 to-indigo-600 dark:from-slate-400 dark:to-indigo-400 mx-auto rounded-full" />
@@ -87,11 +87,11 @@ export default function About() {
             variants={itemVariants}
             className="max-w-4xl mx-auto text-center"
           >
-            <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6 px-4">
               {t('description')}
             </p>
             {t('detailedDescription') && t('detailedDescription') !== 'about.detailedDescription' && (
-              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed px-4">
                 {t('detailedDescription')}
               </p>
             )}

@@ -89,7 +89,7 @@ export default function ContactPopup() {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[61] w-full max-w-sm bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden"
+            className="fixed bottom-4 left-4 right-4 sm:bottom-6 sm:left-auto sm:right-6 md:bottom-8 md:right-8 z-[61] w-auto sm:w-full max-w-sm bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden mx-auto"
           >
             {/* Header */}
             <div className="relative bg-gradient-to-r from-slate-700 via-slate-800 to-indigo-700 dark:from-slate-600 dark:via-slate-700 dark:to-indigo-600 p-6">

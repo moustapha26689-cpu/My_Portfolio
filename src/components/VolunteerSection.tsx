@@ -53,33 +53,33 @@ function VolunteerDetailModal({ volunteer, isOpen, onClose }: VolunteerDetailMod
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-4 md:inset-8 lg:inset-16 z-50 overflow-y-auto"
+            className="fixed inset-2 sm:inset-4 md:inset-8 lg:inset-16 z-50 overflow-y-auto"
           >
-            <div className="min-h-full flex items-center justify-center p-4">
-              <motion.div className="relative w-full max-w-5xl bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden">
-                <div className="relative bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 p-8">
+            <div className="min-h-full flex items-center justify-center p-2 sm:p-4">
+              <motion.div className="relative w-full max-w-5xl bg-white dark:bg-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden">
+                <div className="relative bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 p-4 sm:p-6 md:p-8">
                   <button
                     onClick={onClose}
                     className="absolute top-4 right-4 p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors"
                   >
-                    <XMarkIcon className="w-6 h-6 text-white" />
+                    <XMarkIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </button>
                   
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 pr-12">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 pr-10 sm:pr-12">
                     {volunteer.role}
                   </h2>
-                  <p className="text-xl text-white/90">{volunteer.organization}</p>
-                  <div className="flex flex-wrap gap-4 mt-4 text-white/80">
+                  <p className="text-base sm:text-lg md:text-xl text-white/90">{volunteer.organization}</p>
+                  <div className="flex flex-wrap gap-2 sm:gap-4 mt-3 sm:mt-4 text-sm sm:text-base text-white/80">
                     <span>{volunteer.period}</span>
                     {volunteer.category && <span>• {volunteer.category}</span>}
                   </div>
                 </div>
 
-                <div className="p-8 max-h-[calc(100vh-200px)] overflow-y-auto">
+                <div className="p-4 sm:p-6 md:p-8 max-h-[calc(100vh-120px)] sm:max-h-[calc(100vh-200px)] overflow-y-auto">
                   {/* Galerie en premier pour être visible immédiatement */}
                   {((volunteer.images && volunteer.images.length > 0) || (volunteer.videos && volunteer.videos.length > 0)) && (
                     <div className="mb-8">
-                      <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
                         Galerie
                       </h3>
                       
@@ -146,7 +146,7 @@ function VolunteerDetailModal({ volunteer, isOpen, onClose }: VolunteerDetailMod
 
                   {volunteer.detailedDescription && (
                     <div className="mb-8">
-                      <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
                         {t('aboutEngagement')}
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
@@ -165,7 +165,7 @@ function VolunteerDetailModal({ volunteer, isOpen, onClose }: VolunteerDetailMod
 
                   {volunteer.achievements && volunteer.achievements.length > 0 && (
                     <div className="mb-8">
-                      <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
                         {t('missionsAndResponsibilities')}
                       </h3>
                       <ul className="space-y-3">
