@@ -42,6 +42,15 @@
   },
   "experience": {
     "title": "Professional Experience",
+    "gallery": "Gallery",
+    "aboutExperience": "About this experience",
+    "mainResponsibilities": "Main Responsibilities",
+    "technologiesAndTools": "Technologies & Tools used",
+    "internshipCertificate": "Internship Certificate",
+    "downloadPdf": "Download PDF",
+    "openInNewTab": "Open in new tab",
+    "video": "Video",
+    "clickForDetails": "Click on an experience to see details",
     "items": [
       {
         "title": "Accounting Assistant",
@@ -211,6 +220,8 @@
   },
   "volunteer": {
     "title": "Engagement & Leadership",
+    "gallery": "Gallery",
+    "video": "Video",
     "aboutEngagement": "About this engagement",
     "missionsAndResponsibilities": "Missions and responsibilities",
     "items": [

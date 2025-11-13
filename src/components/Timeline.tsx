@@ -209,7 +209,7 @@ export default function Timeline() {
               {t('title')}
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-lg">
-              Cliquez sur une expérience pour voir les détails
+              {t('clickForDetails')}
             </p>
           </motion.div>
 

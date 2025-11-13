@@ -53,7 +53,7 @@ function VolunteerDetailModal({ volunteer, isOpen, onClose }: VolunteerDetailMod
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-2 sm:inset-4 md:inset-8 lg:inset-16 z-50 overflow-y-auto"
+            className="fixed inset-1 sm:inset-4 md:inset-8 lg:inset-16 z-50 overflow-y-auto"
           >
             <div className="min-h-full flex items-center justify-center p-2 sm:p-4">
               <motion.div className="relative w-full max-w-5xl bg-white dark:bg-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden">
@@ -80,7 +80,7 @@ function VolunteerDetailModal({ volunteer, isOpen, onClose }: VolunteerDetailMod
                   {((volunteer.images && volunteer.images.length > 0) || (volunteer.videos && volunteer.videos.length > 0)) && (
                     <div className="mb-8">
                       <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
-                        Galerie
+                        {t('gallery')}
                       </h3>
                       
                       {/* Images */}
@@ -135,7 +135,7 @@ function VolunteerDetailModal({ volunteer, isOpen, onClose }: VolunteerDetailMod
                               />
                               <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded flex items-center gap-1 text-sm">
                                 <VideoCameraIcon className="w-4 h-4" />
-                                <span>Vidéo</span>
+                                <span>{t('video')}</span>
                               </div>
                             </motion.div>
                           ))}

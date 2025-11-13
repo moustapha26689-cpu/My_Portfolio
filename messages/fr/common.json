@@ -42,6 +42,15 @@
   },
   "experience": {
     "title": "Expérience Professionnelle",
+    "gallery": "Galerie",
+    "aboutExperience": "À propos de cette expérience",
+    "mainResponsibilities": "Responsabilités principales",
+    "technologiesAndTools": "Technologies & Outils utilisés",
+    "internshipCertificate": "Attestation de stage",
+    "downloadPdf": "Télécharger le PDF",
+    "openInNewTab": "Ouvrir dans un nouvel onglet",
+    "video": "Vidéo",
+    "clickForDetails": "Cliquez sur une expérience pour voir les détails",
     "items": [
       {
         "title": "Assistant-comptable",
@@ -211,6 +220,8 @@
   },
   "volunteer": {
     "title": "Engagement & Leadership",
+    "gallery": "Galerie",
+    "video": "Vidéo",
     "aboutEngagement": "À propos de cet engagement",
     "missionsAndResponsibilities": "Missions et responsabilités",
     "items": [

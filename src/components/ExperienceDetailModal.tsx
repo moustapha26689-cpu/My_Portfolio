@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { XMarkIcon, ArrowDownTrayIcon, DocumentTextIcon, EyeIcon, VideoCameraIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import ImageModal from './ImageModal';
 
 interface ExperienceDetail {
@@ -28,6 +29,7 @@ interface ExperienceDetailModalProps {
 }
 
 export default function ExperienceDetailModal({ experience, isOpen, onClose }: ExperienceDetailModalProps) {
+  const t = useTranslations('experience');
   const [imageModalOpen, setImageModalOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
@@ -56,7 +58,7 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-2 sm:inset-4 md:inset-8 lg:inset-16 z-50 overflow-y-auto"
+            className="fixed inset-1 sm:inset-4 md:inset-8 lg:inset-16 z-50 overflow-y-auto"
           >
             <div className="min-h-full flex items-center justify-center p-2 sm:p-4">
               <motion.div
@@ -90,7 +92,7 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                   {((experience.images && experience.images.length > 0) || (experience.videos && experience.videos.length > 0)) && (
                     <div className="mb-8">
                       <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
-                        Galerie
+                        {t('gallery')}
                       </h3>
                       
                       {/* Images */}
@@ -147,7 +149,7 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                               />
                               <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded flex items-center gap-1 text-sm">
                                 <VideoCameraIcon className="w-4 h-4" />
-                                <span>Vidéo</span>
+                                <span>{t('video')}</span>
                               </div>
                             </motion.div>
                           ))}
@@ -160,7 +162,7 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                   {experience.detailedDescription && (
                     <div className="mb-8">
                       <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
-                        À propos de cette expérience
+                        {t('aboutExperience')}
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
                         {experience.detailedDescription}
@@ -181,7 +183,7 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                   {experience.details && experience.details.length > 0 && (
                     <div className="mb-8">
                       <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
-                        Responsabilités principales
+                        {t('mainResponsibilities')}
                       </h3>
                       <ul className="space-y-3">
                         {experience.details.map((detail, index) => (
@@ -204,7 +206,7 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                   {experience.technologies && experience.technologies.length > 0 && (
                     <div className="mb-8">
                       <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
-                        Technologies & Outils utilisés
+                        {t('technologiesAndTools')}
                       </h3>
                       <div className="flex flex-wrap gap-3">
                         {experience.technologies.map((tech, index) => (
@@ -227,7 +229,7 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                     <div className="mb-8">
                       <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white flex items-center">
                         <DocumentTextIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-slate-600 dark:text-slate-400" />
-                        Attestation de stage
+                        {t('internshipCertificate')}
                       </h3>
                       
                       {/* Boutons d'action */}
@@ -240,7 +242,7 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                             className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-slate-700 to-indigo-700 hover:from-slate-800 hover:to-indigo-800 dark:from-slate-600 dark:to-indigo-600 dark:hover:from-slate-700 dark:hover:to-indigo-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
                           >
                             <ArrowDownTrayIcon className="w-5 h-5 mr-2" />
-                            Télécharger le PDF
+                            {t('downloadPdf')}
                           </a>
                           <a
                             href={experience.attestationUrl}
@@ -249,7 +251,7 @@ export default function ExperienceDetailModal({ experience, isOpen, onClose }: E
                             className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 border-2 border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-gray-700 rounded-lg font-semibold transition-colors"
                           >
                             <EyeIcon className="w-5 h-5 mr-2" />
-                            Ouvrir dans un nouvel onglet
+                            {t('openInNewTab')}
                           </a>
                         </div>
                       )}
