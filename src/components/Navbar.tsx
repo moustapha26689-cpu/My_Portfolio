@@ -5,7 +5,7 @@ import ThemeSwitcher from './ThemeSwitcher';
 import LanguageSwitcher from './LanguageSwitcher';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { 
   HomeIcon, 
   UserIcon, 
@@ -22,6 +22,7 @@ export default function Navbar() {
   const t = useTranslations('nav');
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
+  const navScrollRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
     { key: 'home', href: 'hero', icon: HomeIcon },
@@ -64,6 +65,33 @@ export default function Navbar() {
     handleScroll(); // Appel initial pour définir la section active au chargement
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Auto-scroll de la barre de navigation mobile pour centrer l'onglet actif
+  useEffect(() => {
+    if (!navScrollRef.current) return;
+    
+    const activeNavItem = navScrollRef.current.querySelector(`[data-section="${activeSection}"]`) as HTMLElement;
+    if (!activeNavItem) return;
+
+    const container = navScrollRef.current;
+    const containerRect = container.getBoundingClientRect();
+    const itemRect = activeNavItem.getBoundingClientRect();
+    
+    // Calculer la position pour centrer l'élément actif
+    const scrollLeft = container.scrollLeft;
+    const itemLeft = activeNavItem.offsetLeft;
+    const itemWidth = activeNavItem.offsetWidth;
+    const containerWidth = container.offsetWidth;
+    
+    // Position cible pour centrer l'élément
+    const targetScroll = itemLeft - (containerWidth / 2) + (itemWidth / 2);
+    
+    // Scroller de manière fluide
+    container.scrollTo({
+      left: targetScroll,
+      behavior: 'smooth'
+    });
+  }, [activeSection]);
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -146,9 +174,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Navigation Mobile - Scroll horizontal */}
-      <div className="lg:hidden border-t border-gray-200/50 dark:border-gray-800/50">
-        <div className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-4 py-2 overflow-x-auto scrollbar-hide">
+      {/* Navigation Mobile - Scroll horizontal avec auto-centrage */}
+      <div className="lg:hidden border-t border-gray-200/50 dark:border-gray-800/50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl">
+        <div 
+          ref={navScrollRef}
+          className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-4 py-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+        >
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.href;
@@ -161,14 +192,23 @@ export default function Navbar() {
                 smooth={true}
                 offset={-100}
                 duration={500}
-                className={`flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-lg font-medium transition-all duration-300 cursor-pointer whitespace-nowrap text-xs sm:text-sm ${
+                data-section={item.href}
+                className={`flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-xl font-medium transition-all duration-300 cursor-pointer whitespace-nowrap text-xs sm:text-sm snap-center flex-shrink-0 relative ${
                   isActive
-                    ? 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/50'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    ? 'text-white bg-gradient-to-r from-slate-700 to-indigo-700 dark:from-slate-600 dark:to-indigo-600 shadow-lg scale-105 z-10'
+                    : 'text-gray-700 dark:text-gray-300 bg-gray-100/80 dark:bg-gray-800/50 hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105'
                 }`}
               >
-                <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                <span>{t(item.key)}</span>
+                <Icon className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform ${isActive ? 'scale-110' : ''}`} />
+                <span className="font-semibold">{t(item.key)}</span>
+                {/* Indicateur actif animé */}
+                {isActive && (
+                  <motion.div
+                    layoutId="mobileActiveIndicator"
+                    className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-white rounded-full"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </Link>
             );
           })}
