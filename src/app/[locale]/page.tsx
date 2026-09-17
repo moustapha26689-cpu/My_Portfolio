@@ -9,6 +9,8 @@ import AwardSection from '@/components/AwardSection';
 import TestScoreSection from '@/components/TestScoreSection';
 import VolunteerSection from '@/components/VolunteerSection';
 import ContactPopup from '@/components/ContactPopup';
+import ScrollToTop from '@/components/ScrollToTop';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -24,6 +26,8 @@ export default function Home() {
       <AwardSection />
       <TestScoreSection />
       <ContactPopup />
+      <Footer />
+      <ScrollToTop />
     </>
   );
 }

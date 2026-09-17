@@ -43,7 +43,7 @@ export default function LanguageSwitcher() {
     
     // Utiliser window.location pour forcer un rechargement complet avec la nouvelle locale
     // Cela garantit que Next.js recharge la page avec les bonnes traductions
-    window.location.href = newPathname;
+    window.location.assign(newPathname);
   };
 
   return (
@@ -103,4 +103,6 @@ export default function LanguageSwitcher() {
     </div>
   );
 }
+
+
 

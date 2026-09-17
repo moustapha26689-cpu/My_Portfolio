@@ -14,34 +14,61 @@
   },
   "hero": {
     "title": "Mouhamadou Moustapha Fall",
-    "subtitle": "Étudiant en M2 Gestion Financière & Comptable",
+    "headline": "Collaborateur Comptable @TPA | Diplômé ENCG Fès",
+    "subtitle": "Collaborateur Comptable @TPA | Diplômé ENCG Fès",
+    "typewriterSpecializations": [
+      "Collaborateur Comptable",
+      "Auditeur & Consultant Junior",
+      "Spécialiste Facturation Électronique",
+      "Expert Pennylane & Digitalisation",
+      "Diplômé ENCG Fès"
+    ],
+    "typewriterItems": [
+      "Tenue & Révision Comptable",
+      "Déploiement Pennylane & OCR",
+      "Fiscalité d'entreprise",
+      "Rapprochements Bancaires",
+      "Digitalisation Financière",
+      "Référentiel Comptable Français"
+    ],
     "ctaPrimary": "En savoir plus",
     "ctaSecondary": "Mon parcours",
-    "quote": "Ensemble, nous pouvons grandir professionnellement."
+    "cvDownloadUrl": "/cv.pdf",
+    "quote": "Ensemble, nous pouvons grandir professionnellement.",
+    "hiThere": "Bonjour,",
+    "imName": "Je suis Mouhamadou Moustapha",
+    "lastName": "Fall",
+    "iAmInto": "Expertise en :",
+    "aboutMe": "À propos de moi"
   },
   "about": {
-    "title": "À propos de moi",
-    "description": "Passionné par la finance et la comptabilité, je suis actuellement étudiant en Master 2 Gestion Financière & Comptable à l'ENCG Fès. Mon parcours académique et mes expériences professionnelles m'ont permis de développer une solide expertise dans ces domaines.",
-    "detailedDescription": "Titulaire d'un Baccalauréat en Management, Économie et Gestion avec Mention Bien, mon parcours est marqué par une passion constante pour l'excellence académique et professionnelle.",
+    "title": "À Propos",
+    "description": "Collaborateur comptable chez Tree Partners Advisory (Casablanca) et diplômé d'un Master en Gestion Financière & Comptable à l'ENCG Fès, j'allie rigueur en normes comptables françaises et maîtrise des outils digitaux d'automatisation.",
+    "detailedDescription": "Diplômé de l'ENCG Fès, j'ai soutenu mon mémoire de recherche sur la « Digitalisation des processus comptables et fiabilité de l'information financière ». J'interviens aujourd'hui auprès d'entreprises pour la tenue de leurs comptes, l'analyse financière, la conformité fiscale et l'implémentation de solutions modernes telles que Pennylane et la facturation électronique.",
+    "thesisTitle": "Digitalisation des processus comptables et fiabilité de l'information financière",
+    "thesisSubtitle": "Mémoire de fin d'études — ENCG Fès",
     "keyPoints": [
-      "Expérience pratique dans le secteur public et privé",
-      "Leadership et engagement associatif",
-      "Volontaire pour la Coupe d'Afrique des Nations Maroc 2025",
-      "Engagement dans des projets à impact social"
+      "Collaborateur Comptable chez Tree Partners Advisory (Casablanca)",
+      "Diplômé Master 2 ENCG Fès",
+      "Mémoire : Digitalisation des processus comptables et fiabilité de l'information financière",
+      "Double certification Pennylane (Interface Comptabilité & Spécialiste Facture Électronique)",
+      "Engagement associatif : Secrétaire Général UGESM Fès & Volontaire/Coordinateur CAN 2025"
     ],
     "valuesTitle": "Mes Valeurs",
     "values": [
       "Excellence et rigueur professionnelle",
-      "Intégrité et éthique",
-      "Innovation et adaptation",
-      "Collaboration et travail d'équipe",
-      "Engagement et responsabilité sociale"
+      "Intégrité et déontologie financière",
+      "Innovation digitale & automatisation",
+      "Esprit d'équipe et collaboration",
+      "Engagement citoyen et responsabilité"
     ],
     "objectivesTitle": "Mes Objectifs",
-    "objectives": "Mon ambition est de devenir Expert Comptable et Commissaire aux Comptes. Je souhaite acquérir les compétences nécessaires pour accompagner les entreprises dans leur gestion financière, assurer la conformité de leurs comptes et contribuer à la transparence financière. Mon objectif est de devenir un professionnel reconnu, capable d'apporter une expertise de haut niveau et de jouer un rôle clé dans le développement économique."
+    "objectives": "Mon ambition est de poursuivre mon évolution vers l'Expertise Comptable et le Commissariat aux Comptes. Je souhaite accompagner les organisations dans la fiabilisation de leurs comptes, le pilotage stratégique de leur trésorerie et la transformation digitale de leurs flux financiers à l'ère de la facturation électronique.",
+    "me": "de Moi",
+    "fullName": "Mouhamadou Moustapha Fall"
   },
   "experience": {
-    "title": "Expérience Professionnelle",
+    "title": "Expérience.",
     "gallery": "Galerie",
     "aboutExperience": "À propos de cette expérience",
     "mainResponsibilities": "Responsabilités principales",
@@ -53,7 +80,42 @@
     "clickForDetails": "Cliquez sur une expérience pour voir les détails",
     "items": [
       {
+        "title": "Collaborateur Comptable",
+        "role": "Collaborateur Comptable",
+        "company": "Tree Partners Advisory",
+        "period": "Jan 2026 - Présent",
+        "location": "Casablanca, Maroc · Sur site",
+        "description": "Tenue comptable sous le Référentiel Comptable Français, analyse de balance, rapprochements bancaires, automatisation des flux via Pennylane et conformité fiscale (TVA, IS).",
+        "detailedDescription": "Au sein du cabinet Tree Partners Advisory à Casablanca, j'interviens sur des dossiers d'entreprises sous référentiel comptable français. Mes missions couvrent la tenue et révision comptable, l'analyse approfondie des balances générales et auxiliaires, les rapprochements bancaires et le traitement automatisé des pièces via Pennylane OCR. J'assure également le suivi des déclarations fiscales (TVA, IS) et la conformité des clôtures périodiques.",
+        "details": [
+          "Application rigoureuse du Référentiel Comptable Français",
+          "Analyse des balances comptables et révision des comptes",
+          "Rapprochements bancaires et lettrage régulier",
+          "Automatisation des flux d'achats/ventes et traitement OCR sur Pennylane",
+          "Établissement et contrôle des déclarations fiscales (TVA, IS)"
+        ],
+        "missions": [
+          "Application rigoureuse du Référentiel Comptable Français",
+          "Analyse des balances comptables et révision des comptes",
+          "Rapprochements bancaires et lettrage régulier",
+          "Automatisation des flux d'achats/ventes et traitement OCR sur Pennylane",
+          "Établissement et contrôle des déclarations fiscales (TVA, IS)"
+        ],
+        "technologies": [
+          "Pennylane",
+          "TVA",
+          "IS",
+          "Référentiel Français",
+          "Rapprochement bancaire"
+        ],
+        "images": [],
+        "videos": [],
+        "attestationUrl": "/images/attestations/tree-partners-advisory/attestation.pdf",
+        "attestationImage": ""
+      },
+      {
         "title": "Assistant-comptable",
+        "role": "Assistant-comptable",
         "company": "Fidu Soumaya",
         "period": "Mai 2025 (1 mois)",
         "location": "Fès, Fès-Meknès, Maroc · Sur site",
@@ -66,14 +128,30 @@
           "Lettrage automatique et manuel des comptes",
           "Contrôle et validation des pièces comptables"
         ],
-        "technologies": ["Synergie", "Excel", "Comptabilité générale"],
-        "images": ["/images/experiences/fidu-soumaya/moi-1.jpg"],
-        "videos": ["/media/experiences/fidu-soumaya/moi-2.mp4"],
+        "missions": [
+          "Gestion complète du cycle comptable client avec Synergie",
+          "Réalisation de rapprochements bancaires mensuels",
+          "Télétransmission des déclarations de TVA",
+          "Lettrage automatique et manuel des comptes",
+          "Contrôle et validation des pièces comptables"
+        ],
+        "technologies": [
+          "Synergie",
+          "Excel",
+          "Comptabilité générale"
+        ],
+        "images": [
+          "/images/experiences/fidu-soumaya/moi-1.jpg"
+        ],
+        "videos": [
+          "/media/experiences/fidu-soumaya/moi-2.mp4"
+        ],
         "attestationUrl": "/images/attestations/fidu-soumaya/attestation.pdf",
         "attestationImage": ""
       },
       {
         "title": "Assistant Administratif et Financier",
+        "role": "Assistant Administratif et Financier",
         "company": "Trésorerie Générale du Royaume",
         "period": "Jan 2025 (1 mois)",
         "location": "Fès, Fès-Meknès, Maroc · Sur site",
@@ -86,43 +164,108 @@
           "Contrôle de conformité aux normes publiques",
           "Suivi rigoureux des opérations financières"
         ],
-        "technologies": ["GIR", "SIAB", "GID", "Comptabilité Publique"],
-        "images": ["/images/experiences/tresorerie-generale/moi-1.jpg"],
+        "missions": [
+          "Gestion quotidienne de la caisse (encaissements/décaissements)",
+          "Utilisation des systèmes GIR, SIAB et GID",
+          "Préparation des écritures comptables pour l'État",
+          "Contrôle de conformité aux normes publiques",
+          "Suivi rigoureux des opérations financières"
+        ],
+        "technologies": [
+          "GIR",
+          "SIAB",
+          "GID",
+          "Comptabilité Publique"
+        ],
+        "images": [
+          "/images/experiences/tresorerie-generale/moi-1.jpg"
+        ],
+        "videos": [],
         "attestationUrl": "/images/attestations/tresorerie-generale/attestation.pdf",
         "attestationImage": ""
       },
       {
         "title": "Business Strategy Internship",
+        "role": "Business Strategy Internship",
         "company": "Institut des arts de la transformation",
         "period": "Déc 2024 - Fév 2025 (3 mois)",
         "location": "Ville de Paris, Île-de-France, France · Télétravail",
         "description": "Assurer la promotion et la gestion des services en tant que représentant autorisé, en fournissant des solutions adaptées aux besoins spécifiques du marché africain.",
-        "attestationUrl": "/images/attestations/institut-transformation/attestation.pdf"
+        "detailedDescription": "En tant que stagiaire en stratégie d'entreprise, j'ai participé au déploiement de programmes de formation et de conseil adaptés au marché africain, avec analyse des opportunités partenariales.",
+        "details": [
+          "Promotion et gestion des services de l'institut",
+          "Adaptation des offres aux besoins du marché africain",
+          "Prospection et développement de partenariats stratégiques"
+        ],
+        "missions": [
+          "Promotion et gestion des services de l'institut",
+          "Adaptation des offres aux besoins du marché africain",
+          "Prospection et développement de partenariats stratégiques"
+        ],
+        "technologies": [
+          "Business Development",
+          "Stratégie",
+          "Analyse de marché"
+        ],
+        "images": [],
+        "videos": [],
+        "attestationUrl": "/images/attestations/institut-transformation/attestation.pdf",
+        "attestationImage": ""
       },
       {
         "title": "Assistant-comptable",
+        "role": "Assistant-comptable",
         "company": "Defi expertise",
         "period": "Mai 2024 - Juin 2024 (1 mois)",
         "location": "Beauséjour, Casablanca, Maroc · Sur site",
         "description": "Saisie des écritures comptables (achats, ventes, OD) à l'aide d'un logiciel professionnel. Organisation des pièces justificatives. Gestion des dossiers de remboursement de TVA. Réalisation des rapprochements bancaires.",
-        "images": ["/images/experiences/defi-expertise/moi-1.jpg"],
-        "attestationUrl": "/images/attestations/defi-expertise/attestation.pdf"
+        "detailedDescription": "Stage d'immersion au sein du cabinet Defi Expertise : saisie des flux comptables, suivi des dossiers de remboursement de TVA auprès de l'administration fiscale et réconciliation des comptes bancaires.",
+        "details": [
+          "Saisie des écritures comptables d'achats, ventes et opérations diverses",
+          "Classement et archivage des pièces justificatives",
+          "Montage des dossiers de remboursement de TVA",
+          "Rapprochements bancaires réguliers"
+        ],
+        "missions": [
+          "Saisie des écritures comptables d'achats, ventes et opérations diverses",
+          "Classement et archivage des pièces justificatives",
+          "Montage des dossiers de remboursement de TVA",
+          "Rapprochements bancaires réguliers"
+        ],
+        "technologies": [
+          "Comptabilité générale",
+          "TVA",
+          "Rapprochement bancaire",
+          "Excel"
+        ],
+        "images": [
+          "/images/experiences/defi-expertise/moi-1.jpg"
+        ],
+        "videos": [],
+        "attestationUrl": "/images/attestations/defi-expertise/attestation.pdf",
+        "attestationImage": ""
       }
-    ]
+    ],
+    "viewCert": "Voir l'attestation"
   },
   "education": {
-    "title": "Formation",
+    "title": "Éducation.",
     "items": [
       {
         "degree": "Master, Gestion Financière et Comptable",
         "school": "Ecole Nationale de Commerce et de Gestion de Fès (ENCG FES)",
-        "period": "Sep 2021 - Jul 2026"
+        "period": "2021 - 2026",
+        "grade": "Diplômé",
+        "thesis": "Digitalisation des processus comptables et fiabilité de l'information financière",
+        "note": "Diplômé. Mémoire : « Digitalisation des processus comptables et fiabilité de l'information financière »",
+        "context": "Formation d'excellence en gestion financière, audit comptable et contrôle de gestion au sein d'une des grandes écoles de commerce du Maroc.",
+        "imagePlaceholder": "/images/education/encg-fes.jpg"
       },
       {
         "degree": "Baccalauréat, Management, Economie et Gestion",
         "school": "Lycée technique et commercial el hadji abdoulaye niass",
-        "period": "Oct 2018 - Jul 2021",
-        "grade": "MENTION BIEN",
+        "period": "2018 - 2021",
+        "grade": "Diplômé",
         "note": "Major de promotion en classe de terminale"
       }
     ]
@@ -130,6 +273,23 @@
   "skills": {
     "title": "Compétences",
     "items": [
+      {
+        "name": "Pennylane",
+        "level": "5",
+        "iconUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pennylane.svg"
+      },
+      {
+        "name": "Facturation Électronique",
+        "level": "5"
+      },
+      {
+        "name": "Référentiel Comptable Français",
+        "level": "5"
+      },
+      {
+        "name": "Fiscalité d'entreprise",
+        "level": "5"
+      },
       {
         "name": "Comptabilité",
         "level": "5"
@@ -164,18 +324,131 @@
         "name": "Finance",
         "level": "5"
       }
+    ],
+    "categories": [
+      {
+        "name": "Comptabilité & Fiscalité",
+        "skills": [
+          {
+            "name": "Référentiel Comptable Français",
+            "iconKey": "book",
+            "officialBadge": true
+          },
+          {
+            "name": "Fiscalité d'entreprise (TVA, IS)",
+            "iconKey": "tax",
+            "officialBadge": true
+          },
+          {
+            "name": "Comptabilité générale & révision",
+            "iconKey": "ledger",
+            "officialBadge": false
+          },
+          {
+            "name": "Contrôles internes & Audit",
+            "iconKey": "audit",
+            "officialBadge": false
+          }
+        ]
+      },
+      {
+        "name": "Digitalisation & FinTech",
+        "skills": [
+          {
+            "name": "Pennylane (Comptabilité & OCR)",
+            "iconKey": "pennylane",
+            "officialBadge": true
+          },
+          {
+            "name": "Facturation Électronique (Réforme 2026)",
+            "iconKey": "einvoice",
+            "officialBadge": true
+          },
+          {
+            "name": "Microsoft Excel avancé",
+            "iconKey": "excel",
+            "officialBadge": true
+          },
+          {
+            "name": "Microsoft Power BI & Intégration",
+            "iconKey": "powerbi",
+            "officialBadge": true
+          },
+          {
+            "name": "Logiciel Synergie",
+            "iconKey": "synergie",
+            "officialBadge": false
+          }
+        ]
+      },
+      {
+        "name": "Finance & Trésorerie",
+        "skills": [
+          {
+            "name": "Analyse financière & Ratios",
+            "iconKey": "analysis",
+            "officialBadge": false
+          },
+          {
+            "name": "Rapprochements bancaires & Trésorerie",
+            "iconKey": "cash",
+            "officialBadge": false
+          },
+          {
+            "name": "Business Financing",
+            "iconKey": "financing",
+            "officialBadge": false
+          }
+        ]
+      }
     ]
   },
   "certifications": {
-    "title": "Certifications",
+    "title": "Certifications.",
     "items": [
+      {
+        "name": "Certification Pennylane — Spécialiste Facture Électronique",
+        "issuer": "Pennylane",
+        "date": "2026",
+        "credentialId": "68dcf62b822e498e1e043768",
+        "skills": "Facturation Électronique · Pennylane · Conformité Fiscale · Réforme 2026",
+        "documentUrl": "/images/certifications/pennylane/specialiste-facture-electronique.pdf",
+        "verificationUrl": "https://verify.pennylane.com/68dcf62b822e498e1e043768",
+        "imageUrl": "",
+        "tags": [
+          "Facturation Électronique",
+          "Pennylane",
+          "Conformité Fiscale"
+        ]
+      },
+      {
+        "name": "Certification Pennylane — Interface Comptabilité",
+        "issuer": "Pennylane",
+        "date": "2024",
+        "credentialId": "66559314a95f1d77c401f4c2",
+        "skills": "Pennylane · Comptabilité · Automatisation OCR · Rapprochement bancaire",
+        "documentUrl": "/images/certifications/pennylane/interface-comptabilite.pdf",
+        "verificationUrl": "https://verify.pennylane.com/66559314a95f1d77c401f4c2",
+        "imageUrl": "",
+        "tags": [
+          "Pennylane",
+          "Comptabilité",
+          "Automatisation"
+        ]
+      },
       {
         "name": "EF SET English Certificate 53/100 (B2 Upper Intermediate)",
         "issuer": "EF SET",
         "date": "Nov 2025",
         "credentialId": "",
+        "skills": "Anglais professionnel · B2 Upper Intermediate",
         "documentUrl": "/images/certifications/ef-set/certificate.pdf",
-        "imageUrl": ""
+        "verificationUrl": "",
+        "imageUrl": "",
+        "tags": [
+          "Anglais",
+          "B2 Upper Intermediate"
+        ]
       },
       {
         "name": "Excel : Intégrer les données dans Power BI",
@@ -184,18 +457,32 @@
         "credentialId": "",
         "skills": "Microsoft Power BI · Microsoft Excel · Intégration de données",
         "documentUrl": "/images/certifications/linkedin-excel/certificate.pdf",
-        "imageUrl": ""
+        "verificationUrl": "",
+        "imageUrl": "",
+        "tags": [
+          "Power BI",
+          "Excel",
+          "Data Integration"
+        ]
       },
       {
         "name": "Les fondements de la finance (2021)",
         "issuer": "LinkedIn",
         "date": "Nov 2025",
         "credentialId": "",
-        "skills": "Finance",
+        "skills": "Finance d'entreprise · Marchés financiers",
         "documentUrl": "/images/certifications/linkedin-finance/certificate.pdf",
-        "imageUrl": ""
+        "verificationUrl": "",
+        "imageUrl": "",
+        "tags": [
+          "Finance",
+          "Marchés Financiers"
+        ]
       }
-    ]
+    ],
+    "preview": "Aperçu",
+    "document": "Document",
+    "openTab": "Ouvrir dans un onglet"
   },
   "awards": {
     "title": "Récompenses",
@@ -206,25 +493,61 @@
     "items": [
       {
         "test": "Brevet de technicien (BT) option comptabilité",
-        "score": "Mention Assez bien",
+        "score": "",
         "date": "Jul 2021",
         "details": "Lycée technique et commercial el hadji abdoulaye niass"
       },
       {
         "test": "Brevet d'études professionnelle (BEP) option comptabilité",
-        "score": "Mention Assez bien",
+        "score": "",
         "date": "Jul 2020",
         "details": "Lycée technique et commercial el hadji abdoulaye niass"
       }
     ]
   },
   "volunteer": {
-    "title": "Engagement & Leadership",
+    "title": "Engagement.",
     "gallery": "Galerie",
     "video": "Vidéo",
     "aboutEngagement": "À propos de cet engagement",
     "missionsAndResponsibilities": "Missions et responsabilités",
     "items": [
+      {
+        "role": "Secrétaire général",
+        "organization": "Union Générale des Élèves, Étudiants et Stagiaires Sénégalais au Maroc (UGESM) - Section Fès",
+        "period": "Oct 2024 - Mai 2026 (Fin de mandat)",
+        "description": "Secrétaire général de la section régionale de Fès, mandat clôturé avec succès en mai 2026.",
+        "detailedDescription": "En tant que Secrétaire général de l'UGESM Section Fès, j'ai coordonné l'ensemble des activités administratives et organisationnelles de l'association jusqu'à la clôture de mon mandat en mai 2026. J'ai géré la communication institutionnelle, la tenue des registres, l'accueil et l'intégration des étudiants ainsi que l'organisation de rencontres socio-culturelles et éducatives majeures.",
+        "category": "Services sociaux & Vie associative",
+        "achievements": [
+          "Coordination de 8 événements communautaires et académiques majeurs",
+          "Gestion administrative et gouvernance de l'association jusqu'en mai 2026",
+          "Accompagnement et intégration de plus de 300 étudiants et stagiaires",
+          "Renforcement du partenariat institutionnel avec les représentations diplomatiques et régionales"
+        ],
+        "images": [
+          "/images/volunteer/ugesm/moi-1.jpg",
+          "/images/volunteer/ugesm/moi-2.jpg"
+        ],
+        "videos": [
+          "/media/volunteer/ugesm/moi-3.mp4"
+        ]
+      },
+      {
+        "role": "Volontaire & Coordinateur CAN 2025",
+        "organization": "Fédération Royale Marocaine de Football (FRMF) & CAF - Coupe d'Afrique des Nations Maroc 2025",
+        "period": "Déc 2025 - Jan 2026",
+        "description": "Programme officiel des volontaires et coordination opérationnelle pour la Coupe d'Afrique des Nations Maroc 2025.",
+        "detailedDescription": "Sélectionné parmi plus de 4 000 candidats pour le programme officiel de la Coupe d'Afrique des Nations Maroc 2025 organisée par la FRMF et la CAF. Déployé sur les sites de compétition, j'ai assuré des missions clés de coordination logistique, de gestion des accréditations, d'encadrement des flux de supporters et de protocole d'hospitalité.",
+        "category": "Événements sportifs internationaux",
+        "achievements": [
+          "Sélectionné parmi plus de 4 000 candidats au programme officiel",
+          "Rôle actif de coordination logistique et protocolaire sur site",
+          "Gestion des flux de supporters et assistance aux délégations internationales",
+          "Contribution au rayonnement organisationnel d'un événement sportif continental d'envergure"
+        ],
+        "images": []
+      },
       {
         "role": "Président UDEI-ENCG FES",
         "organization": "Ecole Nationale de Commerce et de Gestion de Fès (ENCG FES)",
@@ -254,39 +577,9 @@
           "Développement d'un réseau de 200+ membres actifs"
         ],
         "images": []
-      },
-      {
-        "role": "Secrétaire général",
-        "organization": "Union Générale des Élèves, Étudiants et Stagiaires Sénégalais au Maroc - Section régionale de Meknès",
-        "period": "Oct 2024 - Nov 2025 (1 an 2 mois)",
-        "description": "SECTION FES",
-        "detailedDescription": "En tant que Secrétaire général de l'UGESM Section Fès, j'ai coordonné les activités administratives et organisationnelles de l'association. J'ai géré la communication interne et externe, organisé des événements communautaires et représenté l'association dans diverses instances.",
-        "category": "Services sociaux",
-        "achievements": [
-          "Coordination de 8 événements communautaires majeurs",
-          "Gestion administrative efficace de l'association",
-          "Renforcement des liens communautaires",
-          "Représentation dans des instances régionales"
-        ],
-        "images": ["/images/volunteer/ugesm/moi-1.jpg", "/images/volunteer/ugesm/moi-2.jpg"],
-        "videos": ["/media/volunteer/ugesm/moi-3.mp4"]
-      },
-      {
-        "role": "Volontaire CAN 2025",
-        "organization": "Fédération Royale Marocaine de Football (FRMF) - Coupe d'Afrique des Nations Maroc 2025",
-        "period": "Déc 2025 - Jan 2026",
-        "description": "Programme officiel des volontaires pour la Coupe d'Afrique des Nations Maroc 2025",
-        "detailedDescription": "Sélectionné parmi 4000 volontaires pour participer au programme officiel de la Coupe d'Afrique des Nations Maroc 2025 organisée par la FRMF et la CAF. Ce tournoi prestigieux se déroulera du 21 décembre 2025 au 18 janvier 2026 dans 6 villes et 9 stades du Maroc. En tant que volontaire, je contribuerai aux différents aspects organisationnels du tournoi, notamment les activités médiatiques, les accréditations, l'hospitalité, l'accueil et l'accompagnement des supporters.",
-        "category": "Événements sportifs",
-        "achievements": [
-          "Sélection parmi 4000 candidats",
-          "Participation à un événement continental majeur",
-          "Contribution à l'organisation d'un tournoi international",
-          "Accueil et accompagnement des supporters et visiteurs"
-        ],
-        "images": []
       }
-    ]
+    ],
+    "at": "chez"
   },
   "gallery": {
     "title": "Galerie",
@@ -303,7 +596,7 @@
     "phone": "+212 710-928562",
     "whatsapp": "+212710928562",
     "linkedin": "https://www.linkedin.com/in/mouhamadou-moustapha-fall-65283a291/",
-    "location": "Fès, Maroc",
+    "location": "Casablanca / Fès, Maroc",
     "availability": "Disponible pour opportunités",
     "emailLabel": "Email",
     "phoneLabel": "Téléphone",
@@ -311,6 +604,10 @@
     "availabilityLabel": "Disponibilité",
     "popupTitle": "Souhaitez-vous me contacter ?",
     "popupMessage": "Choisissez votre moyen de communication préféré",
-    "popupDismiss": "Peut-être plus tard"
+    "popupDismiss": "Peut-être plus tard",
+    "resumeBtn": "Mon CV >",
+    "callBtn": "Appeler",
+    "whatsappBtn": "WhatsApp",
+    "emailBtn": "Envoyer un Email"
   }
 }

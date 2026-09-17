@@ -1,333 +1,190 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useMessages } from 'next-intl';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { MapPinIcon, CalendarIcon, BuildingOfficeIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-import ExperienceDetailModal from './ExperienceDetailModal';
-import { getExperienceImagePath } from '@/lib/imageUtils';
-import { safeTranslateRaw } from '@/lib/translationUtils';
+import { BriefcaseIcon, ArrowTopRightOnSquareIcon, MapPinIcon } from '@heroicons/react/24/outline';
 
-interface TimelineItem {
+interface ExperienceItem {
   title: string;
-  company?: string;
+  role?: string;
+  company: string;
   period: string;
   location?: string;
-  description: string;
+  description?: string;
   detailedDescription?: string;
-  details?: string[];
-  images?: string[];
-  videos?: string[];
-  technologies?: string[];
   attestationUrl?: string;
-  attestationImage?: string;
+  image?: string;
+  tags?: string[];
 }
 
 export default function Timeline() {
   const t = useTranslations('experience');
-  const [selectedExperience, setSelectedExperience] = useState<TimelineItem | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const messages = useMessages() as Record<string, any>;
 
-  // Récupérer toutes les expériences depuis les traductions
-  const getItems = (): TimelineItem[] => {
-    const items: TimelineItem[] = [];
-    const maxItems = 20; // Limite de sécurité
-    for (let index = 0; index < maxItems; index++) {
-      try {
-        let title: string;
-        try {
-          title = t(`items.${index}.title`);
-        } catch (error: any) {
-          if (error?.code === 'MISSING_MESSAGE' || error?.originalMessage?.includes('MISSING_MESSAGE')) {
-            break;
-          }
-          throw error;
-        }
-        
-        // Vérifier si la clé existe vraiment (ne pas être une clé de fallback)
-        if (!title || title === `experience.items.${index}.title` || title === `items.${index}.title` || title.startsWith('items.')) {
-          break;
-        }
-        
-        let company: string;
-        let period: string;
-        let description: string;
-        try {
-          company = t(`items.${index}.company`);
-          period = t(`items.${index}.period`);
-          description = t(`items.${index}.description`);
-          // Vérifier si les clés existent vraiment
-          if (company === `experience.items.${index}.company` || company === `items.${index}.company` || company.startsWith('items.')) {
-            break;
-          }
-          if (period === `experience.items.${index}.period` || period === `items.${index}.period` || period.startsWith('items.')) {
-            break;
-          }
-          if (description === `experience.items.${index}.description` || description === `items.${index}.description` || description.startsWith('items.')) {
-            break;
-          }
-        } catch (error: any) {
-          if (error?.code === 'MISSING_MESSAGE' || error?.originalMessage?.includes('MISSING_MESSAGE')) {
-            break;
-          }
-          throw error;
-        }
-          
-          let location: string | undefined;
-          const locationRaw = safeTranslateRaw(t, `items.${index}.location`);
-          if (locationRaw && typeof locationRaw === 'string' && locationRaw !== `experience.items.${index}.location`) {
-            location = locationRaw;
-          }
-          
-          // Description détaillée
-          let detailedDescription: string | undefined;
-          const detailedDescRaw = safeTranslateRaw(t, `items.${index}.detailedDescription`);
-          if (detailedDescRaw && typeof detailedDescRaw === 'string' && detailedDescRaw !== `experience.items.${index}.detailedDescription`) {
-            detailedDescription = detailedDescRaw;
-          }
-          
-          // Récupérer les détails supplémentaires
-          const details: string[] = [];
-          let detailIndex = 0;
-          while (detailIndex < 10) {
-            const detailRaw = safeTranslateRaw(t, `items.${index}.details.${detailIndex}`);
-            if (detailRaw && typeof detailRaw === 'string' && detailRaw !== `experience.items.${index}.details.${detailIndex}`) {
-              details.push(detailRaw);
-              detailIndex++;
-            } else {
-              break;
-            }
-          }
-          
-          // Récupérer les images depuis le JSON uniquement (plus de génération automatique)
-          const images: string[] = [];
-          let imageIndex = 0;
-          while (imageIndex < 10) {
-            const imageRaw = safeTranslateRaw(t, `items.${index}.images.${imageIndex}`);
-            if (imageRaw && typeof imageRaw === 'string' && imageRaw !== `experience.items.${index}.images.${imageIndex}`) {
-              images.push(imageRaw);
-              imageIndex++;
-            } else {
-              break;
-            }
-          }
-          
-          // Attestation (manuelle ou automatique)
-          let attestationUrl: string | undefined;
-          let attestationImage: string | undefined;
-          
-          const attUrlRaw = safeTranslateRaw(t, `items.${index}.attestationUrl`);
-          if (attUrlRaw && typeof attUrlRaw === 'string' && attUrlRaw !== `experience.items.${index}.attestationUrl`) {
-            attestationUrl = attUrlRaw;
-          } else if (company) {
-            // Générer automatiquement le chemin de l'attestation PDF
-            attestationUrl = `/images/attestations/${company.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}/attestation.pdf`;
-          }
-          
-          const attImgRaw = safeTranslateRaw(t, `items.${index}.attestationImage`);
-          if (attImgRaw && typeof attImgRaw === 'string' && attImgRaw !== `experience.items.${index}.attestationImage`) {
-            attestationImage = attImgRaw;
-          } else if (company) {
-            // Générer automatiquement le chemin de l'image d'attestation
-            attestationImage = getExperienceImagePath(company, 'attestation');
-          }
-          
-          // Récupérer les vidéos
-          const videos: string[] = [];
-          let videoIndex = 0;
-          while (videoIndex < 10) {
-            const videoRaw = safeTranslateRaw(t, `items.${index}.videos.${videoIndex}`);
-            if (videoRaw && typeof videoRaw === 'string' && videoRaw !== `experience.items.${index}.videos.${videoIndex}`) {
-              videos.push(videoRaw);
-              videoIndex++;
-            } else {
-              break;
-            }
-          }
-          
-          // Récupérer les technologies
-          const technologies: string[] = [];
-          let techIndex = 0;
-          while (techIndex < 10) {
-            const techRaw = safeTranslateRaw(t, `items.${index}.technologies.${techIndex}`);
-            if (techRaw && typeof techRaw === 'string' && techRaw !== `experience.items.${index}.technologies.${techIndex}`) {
-              technologies.push(techRaw);
-              techIndex++;
-            } else {
-              break;
-            }
-          }
-          
-          items.push({
-            title,
-            company,
-            period,
-            location,
-            description,
-            detailedDescription,
-            details: details.length > 0 ? details : undefined,
-            images: images.length > 0 ? images : undefined,
-            videos: videos.length > 0 ? videos : undefined,
-            technologies: technologies.length > 0 ? technologies : undefined,
-            attestationUrl,
-            attestationImage,
-          });
-      } catch (error: any) {
-        // Si l'erreur est MISSING_MESSAGE pour le titre, on a atteint la fin
-        if (error?.code === 'MISSING_MESSAGE' || error?.originalMessage?.includes('MISSING_MESSAGE')) {
-          break;
-        }
-        // Sinon, continuer avec l'index suivant
-        continue;
-      }
-    }
-    return items;
+  const rawItems = messages?.experience?.items;
+  const items: ExperienceItem[] = Array.isArray(rawItems) ? rawItems : [];
+
+  // Attestations and real photo map
+  const experienceAssets: Record<string, { attestation?: string; photo?: string }> = {
+    'tree partners advisory': {
+      attestation: '/images/attestations/tree-partners-advisory/attestation.pdf',
+    },
+    'd?fi expertise': {
+      attestation: '/images/attestations/defi-expertise/attestation.pdf',
+      photo: '/images/experiences/defi-expertise/moi-1.jpg',
+    },
+    'defi expertise': {
+      attestation: '/images/attestations/defi-expertise/attestation.pdf',
+      photo: '/images/experiences/defi-expertise/moi-1.jpg',
+    },
+    'fidu soumaya': {
+      attestation: '/images/attestations/fidu-soumaya/attestation.pdf',
+      photo: '/images/experiences/fidu-soumaya/moi-1.jpg',
+    },
+    'institut de transformation': {
+      attestation: '/images/attestations/institut-transformation/attestation.pdf',
+    },
+    'tr?sorerie g?n?rale': {
+      attestation: '/images/attestations/tresorerie-generale/attestation.pdf',
+      photo: '/images/experiences/tresorerie-generale/moi-1.jpg',
+    },
+    'tresorerie generale': {
+      attestation: '/images/attestations/tresorerie-generale/attestation.pdf',
+      photo: '/images/experiences/tresorerie-generale/moi-1.jpg',
+    },
   };
 
-  const items = getItems();
-
-  const handleExperienceClick = (experience: TimelineItem) => {
-    setSelectedExperience(experience);
-    setIsModalOpen(true);
+  const getAsset = (company: string) => {
+    const c = company.toLowerCase();
+    for (const key of Object.keys(experienceAssets)) {
+      if (c.includes(key) || key.includes(c)) {
+        return experienceAssets[key];
+      }
+    }
+    return {};
   };
 
   return (
-    <>
-      <section id="experience" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-black relative overflow-hidden">
-        {/* Effet de fond décoratif */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10" />
+    <section id="experience" className="py-24 md:py-32 bg-white dark:bg-[#0c0827] overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 md:px-6">
         
-        <div className="max-w-6xl mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-slate-700 to-indigo-700 dark:from-slate-300 dark:to-indigo-400 bg-clip-text text-transparent">
-              {t('title')}
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 text-lg">
-              {t('clickForDetails')}
-            </p>
-          </motion.div>
+        {/* Section Title */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 md:mb-20"
+        >
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 mb-4">
+            <BriefcaseIcon className="w-7 h-7" />
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#1a1145] dark:text-white tracking-tight mb-3">
+            {t('title', { defaultValue: 'Expérience' })}
+          </h2>
+          <div className="w-24 h-1.5 bg-[#f59e0b] mx-auto rounded-full mb-3" />
+          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-lg mx-auto font-medium">
+            {messages?.experience?.subtitle || 'Cabinet d\'expertise comptable, audit financier & trésorerie'}
+          </p>
+        </motion.div>
 
-          <div className="relative">
-            {/* Ligne verticale de la timeline */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-slate-500 via-slate-600 to-indigo-600 dark:from-slate-400 dark:via-slate-500 dark:to-indigo-500 transform md:-translate-x-1/2 rounded-full" />
+        {/* Experience Timeline Cards */}
+        <div className="space-y-10">
+          {items.map((item, index) => {
+            const assets = getAsset(item.company);
+            const attestation = item.attestationUrl || assets.attestation;
+            const photo = assets.photo;
+            const isCurrent = index === 0;
 
-            <div className="space-y-12">
-              {items.map((item, index) => {
-                const isEven = index % 2 === 0;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`rounded-3xl p-7 sm:p-9 transition-all duration-300 border ${
+                  isCurrent 
+                    ? 'bg-slate-50 dark:bg-[#120c35] border-amber-400/50 shadow-xl' 
+                    : 'bg-white dark:bg-[#100b2e] border-slate-200 dark:border-slate-800/80 shadow-md hover:shadow-lg'
+                }`}
+              >
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-200 dark:border-slate-800">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                      <span className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+                        {item.title}
+                      </span>
+                      {isCurrent && (
+                        <span className="px-3 py-0.5 rounded-full text-xs font-black uppercase bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                          Poste Actuel
+                        </span>
+                      )}
+                    </div>
+                    
+                    <h4 className="text-lg font-extrabold text-[#4a00e0] dark:text-purple-400">
+                      {item.company}
+                    </h4>
+                  </div>
 
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className={`relative flex items-center ${
-                      isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-                    }`}
-                  >
-                    {/* Point sur la timeline */}
-                    <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 z-10">
-                      <motion.div
-                        whileHover={{ scale: 1.5 }}
-                        className="w-6 h-6 bg-gradient-to-r from-slate-600 to-indigo-600 dark:from-slate-500 dark:to-indigo-500 rounded-full border-4 border-white dark:border-gray-900 shadow-lg"
+                  {/* Period & Location Badge */}
+                  <div className="flex flex-col md:items-end gap-1 flex-shrink-0">
+                    <span className="px-4 py-1.5 rounded-full text-xs sm:text-sm font-black tracking-wide uppercase bg-slate-200/80 dark:bg-slate-800 text-slate-800 dark:text-slate-200">
+                      {item.period}
+                    </span>
+                    {item.location && (
+                      <span className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400 font-semibold">
+                        <MapPinIcon className="w-3.5 h-3.5" />
+                        {item.location}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Body: Description + Optional Photo + Attestation Link */}
+                <div className="pt-5 flex flex-col md:flex-row gap-6 items-start justify-between">
+                  <div className="flex-1 space-y-4">
+                    <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
+                      {item.detailedDescription || item.description}
+                    </p>
+
+                    {/* Attestation Action Button */}
+                    {attestation && (
+                      <div className="pt-2">
+                        <a
+                          href={attestation}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-sm tracking-wide transition-all shadow-sm hover:shadow-md"
+                        >
+                          <span>{t('viewCert', { defaultValue: 'Voir l\'attestation officielle' })}</span>
+                          <ArrowTopRightOnSquareIcon className="w-4 h-4" />
+                        </a>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Real Photo Thumbnail if available */}
+                  {photo && (
+                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-md border-2 border-slate-200 dark:border-slate-700 flex-shrink-0">
+                      <Image
+                        src={photo}
+                        alt={item.company}
+                        fill
+                        className="object-cover"
+                        sizes="128px"
                       />
                     </div>
+                  )}
+                </div>
 
-                    {/* Carte d'expérience */}
-                    <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${isEven ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
-                      <motion.div
-                        whileHover={{ y: -8, scale: 1.02 }}
-                        onClick={() => handleExperienceClick(item)}
-                        className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 cursor-pointer group"
-                      >
-                        {/* En-tête de la carte */}
-                        <div className="p-6 bg-gradient-to-r from-slate-50 to-indigo-50 dark:from-slate-900/20 dark:to-indigo-900/20 group-hover:from-slate-100 group-hover:to-indigo-100 dark:group-hover:from-slate-900/30 dark:group-hover:to-indigo-900/30 transition-colors">
-                          <div className="flex items-start justify-between">
-                            <div className="flex-1">
-                              <div className="flex items-center justify-between mb-2">
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors">
-                                  {item.title}
-                                </h3>
-                                <ChevronRightIcon className="w-6 h-6 text-gray-400 group-hover:text-slate-600 dark:group-hover:text-slate-400 group-hover:translate-x-1 transition-all" />
-                              </div>
-                              {item.company && (
-                                <div className="flex items-center text-gray-600 dark:text-gray-400 mb-3">
-                                  <BuildingOfficeIcon className="w-5 h-5 mr-2" />
-                                  <span className="font-semibold">{item.company}</span>
-                                </div>
-                              )}
-                              <div className="flex flex-wrap gap-4 text-sm text-gray-500 dark:text-gray-400">
-                                <div className="flex items-center">
-                                  <CalendarIcon className="w-4 h-4 mr-1" />
-                                  {item.period}
-                                </div>
-                                {item.location && (
-                                  <div className="flex items-center">
-                                    <MapPinIcon className="w-4 h-4 mr-1" />
-                                    {item.location}
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Contenu principal */}
-                        <div className="p-6">
-                          <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed line-clamp-3">
-                            {item.description}
-                          </p>
-
-                          {/* Technologies utilisées (aperçu) */}
-                          {item.technologies && item.technologies.length > 0 && (
-                            <div className="mb-4">
-                              <div className="flex flex-wrap gap-2">
-                              {item.technologies.slice(0, 3).map((tech, techIndex) => (
-                                  <span
-                                    key={techIndex}
-                                    className="px-3 py-1 bg-slate-100 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 rounded-full text-sm font-medium"
-                                  >
-                                    {tech}
-                                  </span>
-                                ))}
-                                {item.technologies.length > 3 && (
-                                  <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm font-medium">
-                                    +{item.technologies.length - 3}
-                                  </span>
-                                )}
-                              </div>
-                            </div>
-                          )}
-
-                          {/* Indicateur pour voir plus */}
-                          <div className="flex items-center text-slate-700 dark:text-slate-300 font-semibold text-sm group-hover:text-slate-800 dark:group-hover:text-slate-200">
-                            <span>Voir les détails</span>
-                            <ChevronRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
+              </motion.div>
+            );
+          })}
         </div>
-      </section>
 
-      {/* Modal de détails */}
-      <ExperienceDetailModal
-        experience={selectedExperience}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
-    </>
+      </div>
+    </section>
   );
 }

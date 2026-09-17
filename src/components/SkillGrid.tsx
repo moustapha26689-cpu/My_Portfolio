@@ -1,324 +1,204 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { useState, useRef } from 'react';
-import { safeTranslateRaw } from '@/lib/translationUtils';
+import { useTranslations, useMessages } from 'next-intl';
+import { motion } from 'framer-motion';
+import React from 'react';
 
-interface Skill {
-  name: string;
-  level: number; // 1-5
-  icon?: string;
+// Custom high-resolution vector logos for each skill
+function SkillIcon({ skillKey }: { skillKey: string }) {
+  const normalized = skillKey.toLowerCase();
+
+  // Pennylane Official Logo (Blue stylized P ribbon)
+  if (normalized.includes('pennylane')) {
+    return (
+      <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 32 32" fill="none">
+        <path d="M7 6C7 4.89543 7.89543 4 9 4H18.5C22.6421 4 26 7.35786 26 11.5C26 15.6421 22.6421 19 18.5 19H13V26C13 27.1046 12.1046 28 11 28H9C7.89543 28 7 27.1046 7 26V6Z" fill="#1D4ED8" />
+        <circle cx="18.5" cy="11.5" r="3.5" fill="#60A5FA" />
+      </svg>
+    );
+  }
+
+  // Microsoft Excel Official Colors (Green spreadsheet with X)
+  if (normalized.includes('excel')) {
+    return (
+      <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 32 32" fill="none">
+        <rect x="5" y="4" width="22" height="24" rx="4" fill="#107C41" />
+        <path d="M12 10L16 16L12 22H14.5L17.2 17.5L20 22H22.5L18.5 16L22.5 10H20L17.2 14.5L14.5 10H12Z" fill="white" />
+      </svg>
+    );
+  }
+
+  // Microsoft Power BI Official Colors (Gold/Yellow bar chart)
+  if (normalized.includes('power bi')) {
+    return (
+      <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 32 32" fill="none">
+        <rect x="7" y="16" width="4" height="11" rx="1.5" fill="#F2C811" />
+        <rect x="14" y="11" width="4" height="16" rx="1.5" fill="#F2C811" />
+        <rect x="21" y="6" width="4" height="21" rx="1.5" fill="#E89B00" />
+      </svg>
+    );
+  }
+
+  // Facturation électronique / E-Invoicing
+  if (normalized.includes('factur') || normalized.includes('invoic')) {
+    return (
+      <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 32 32" fill="none">
+        <rect x="6" y="4" width="20" height="24" rx="3" stroke="#2563EB" strokeWidth="2" fill="#EFF6FF" />
+        <path d="M11 10H21M11 15H17M11 20H19" stroke="#1D4ED8" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="21" cy="21" r="5" fill="#10B981" />
+        <path d="M19.5 21L20.5 22L22.5 20" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  // Référentiel Comptable Français / French Accounting Standards
+  if (normalized.includes('r?f?rentiel') || normalized.includes('standard') || normalized.includes('norme') || normalized.includes('pcg')) {
+    return (
+      <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 32 32" fill="none">
+        <path d="M7 6C7 4.89543 7.89543 4 9 4H23C24.1046 4 25 4.89543 25 6V26C25 27.1046 24.1046 28 23 28H9C7.89543 28 7 27.1046 7 26V6Z" fill="#1E293B" />
+        <rect x="10" y="8" width="12" height="2" rx="1" fill="#38BDF8" />
+        <rect x="10" y="13" width="8" height="2" rx="1" fill="#94A3B8" />
+        <path d="M16 18L13 23H19L16 18Z" fill="#F59E0B" />
+      </svg>
+    );
+  }
+
+  // Fiscalité d'entreprise / Corporate Taxation
+  if (normalized.includes('fiscal') || normalized.includes('tax')) {
+    return (
+      <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 32 32" fill="none">
+        <path d="M16 4L6 8V16C6 22 10.5 26.5 16 28C21.5 26.5 26 22 26 16V8L16 4Z" fill="#7C3AED" />
+        <path d="M13 14H19M16 11V21" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // Comptabilité / Accounting / Bookkeeping
+  if (normalized.includes('compta') || normalized.includes('account')) {
+    return (
+      <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 32 32" fill="none">
+        <rect x="5" y="5" width="22" height="22" rx="4" fill="#0EA5E9" />
+        <path d="M10 11H22M10 16H22M10 21H16" stroke="white" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // Analyse financière / Financial Analysis
+  if (normalized.includes('analyse') || normalized.includes('analys')) {
+    return (
+      <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 32 32" fill="none">
+        <rect x="5" y="5" width="22" height="22" rx="4" fill="#6366F1" />
+        <path d="M9 21L14 15L18 18L23 11" stroke="#FDE047" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="23" cy="11" r="2" fill="#FDE047" />
+      </svg>
+    );
+  }
+
+  // Contrôles internes / Internal Controls / Audit
+  if (normalized.includes('contr') || normalized.includes('audit')) {
+    return (
+      <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="11" stroke="#059669" strokeWidth="2.5" fill="#ECFDF5" />
+        <path d="M11 16L14.5 19.5L21 13" stroke="#059669" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  // Intégration de données / Data Integration / ETL
+  if (normalized.includes('donn') || normalized.includes('data')) {
+    return (
+      <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="16" cy="9" rx="9" ry="4" fill="#3B82F6" />
+        <path d="M7 9V16C7 18.2 11 20 16 20C21 20 25 18.2 25 16V9" stroke="#1D4ED8" strokeWidth="2" fill="none" />
+        <path d="M7 16V23C7 25.2 11 27 16 27C21 27 25 25.2 25 23V16" stroke="#1D4ED8" strokeWidth="2" fill="none" />
+      </svg>
+    );
+  }
+
+  // Business Financing / Financement
+  if (normalized.includes('financing') || normalized.includes('financ')) {
+    return (
+      <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="11" fill="#EAB308" />
+        <path d="M16 10V22M12.5 13C12.5 13 14 11.5 16 11.5C18 11.5 19.5 12.5 19.5 14C19.5 16 12.5 16.5 12.5 18.5C12.5 20 14 21 16 21C18 21 19.5 19.5 19.5 19.5" stroke="white" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // Generic Finance
+  return (
+    <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 32 32" fill="none">
+      <rect x="5" y="5" width="22" height="22" rx="5" fill="#4F46E5" />
+      <path d="M10 16H22M16 10V22" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  );
 }
-
-const skillEmojis: { [key: string]: string } = {
-  // Comptabilité - Livre de comptes
-  'Comptabilité': '📒',
-  'Accounting': '📒',
-  
-  // Analyse financière - Graphique analytique
-  'Analyse financière': '📊',
-  'Financial Analysis': '📊',
-  
-  // Contrôles internes - Loupe/vérification
-  'Contrôles internes': '🔍',
-  'Internal Controls': '🔍',
-  
-  // Microsoft Excel - Fichier Excel
-  'Microsoft Excel': '📗',
-  
-  // Microsoft Power BI - Graphiques et données
-  'Microsoft Power BI': '📈',
-  
-  // Intégration de données - Base de données
-  'Intégration de données': '💾',
-  'Data Integration': '💾',
-  
-  // Business Financing - Argent/billets
-  'Business Financing': '💵',
-  
-  // Finance - Pièces d'argent
-  'Finance': '💰',
-};
-
 
 export default function SkillGrid() {
   const t = useTranslations('skills');
-  const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
-
-  // Récupérer toutes les compétences depuis les traductions
-  const getSkills = (): Skill[] => {
-    const skills: Skill[] = [];
-    const maxItems = 20; // Limite de sécurité
-    for (let index = 0; index < maxItems; index++) {
-      try {
-        let name: string;
-        try {
-          name = t(`items.${index}.name`);
-        } catch (error: any) {
-          if (error?.code === 'MISSING_MESSAGE' || error?.originalMessage?.includes('MISSING_MESSAGE')) {
-            break;
-          }
-          throw error;
-        }
-        
-        // Vérifier si la clé existe vraiment (ne pas être une clé de fallback)
-        if (!name || name === `skills.items.${index}.name` || name === `items.${index}.name` || name.startsWith('items.')) {
-          break;
-        }
-        
-        let level: number;
-        try {
-          const levelStr = t(`items.${index}.level`, { defaultValue: '5' });
-          // Vérifier si c'est une clé manquante
-          if (levelStr === `skills.items.${index}.level` || levelStr === `items.${index}.level` || levelStr.startsWith('items.')) {
-            break;
-          }
-          level = parseInt(levelStr) || 5;
-        } catch (error: any) {
-          if (error?.code === 'MISSING_MESSAGE' || error?.originalMessage?.includes('MISSING_MESSAGE')) {
-            break;
-          }
-          throw error;
-        }
-        
-        skills.push({ 
-          name, 
-          level: Math.min(Math.max(level, 1), 5),
-          icon: skillEmojis[name] || '⭐'
-        });
-      } catch (error: any) {
-        if (error?.code === 'MISSING_MESSAGE' || error?.originalMessage?.includes('MISSING_MESSAGE')) {
-          break;
-        }
-        continue;
-      }
-    }
-    return skills;
-  };
-
-  const skills = getSkills();
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08
-      }
-    }
-  };
+  const messages = useMessages() as Record<string, any>;
+  
+  // Safely retrieve items array directly from locale messages dictionary
+  const rawItems = messages?.skills?.items;
+  const skillsList: Array<{ name: string; level?: string | number }> = Array.isArray(rawItems)
+    ? rawItems
+    : [];
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-white via-gray-50 to-white dark:from-black dark:via-gray-900 dark:to-black relative overflow-hidden">
-      {/* Effets de fond animés */}
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-slate-600/10 dark:bg-slate-500/5 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            x: [0, -100, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-600/10 dark:bg-indigo-500/5 rounded-full blur-3xl"
-        />
-      </div>
+    <section 
+      id="skills" 
+      className="py-20 md:py-32 relative overflow-hidden" 
+      style={{
+        background: 'linear-gradient(180deg, #24056d 0%, #30088e 50%, #1d0356 100%)'
+      }}
+    >
+      {/* Subtle decorative glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#6366f1]/15 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        
+        {/* Section Title */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-slate-700 via-slate-800 to-indigo-700 dark:from-slate-300 dark:via-slate-200 dark:to-indigo-400 bg-clip-text text-transparent">
-            {t('title')}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-3">
+            {t('title', { defaultValue: 'Compétences' })}
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
-            Mes compétences techniques et professionnelles
+          <div className="w-20 sm:w-24 h-1.5 bg-[#f59e0b] mx-auto rounded-full mb-3" />
+          <p className="text-purple-200/80 text-sm sm:text-base md:text-lg max-w-xl mx-auto">
+            {messages?.skills?.subtitle || 'Expertise technique, référentiel comptable et solutions FinTech'}
           </p>
         </motion.div>
 
-        {/* Design créatif avec cartes flottantes en mouvement */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
-        >
-          {skills.map((skill, index) => {
-            const SkillCard = () => {
-              const ref = useRef<HTMLDivElement>(null);
-              const x = useMotionValue(0);
-              const y = useMotionValue(0);
-              
-              const mouseXSpring = useSpring(x, { stiffness: 500, damping: 100 });
-              const mouseYSpring = useSpring(y, { stiffness: 500, damping: 100 });
-              
-              const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7.5deg", "-7.5deg"]);
-              const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7.5deg", "7.5deg"]);
+        {/* 12 Skills Grid (Responsive 2-col on mobile, 3-col on tablet, 4-col on desktop) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5 md:gap-6">
+          {skillsList.map((skill, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.35, delay: index * 0.04 }}
+              whileHover={{ y: -5, scale: 1.02 }}
+              className="group bg-[#0d092b] hover:bg-[#150f44] border border-white/10 hover:border-[#f59e0b]/70 rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col items-center justify-center text-center shadow-lg hover:shadow-[0_10px_30px_rgba(245,158,11,0.22)] transition-all duration-300 cursor-default"
+            >
+              {/* White Circular Badge */}
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white shadow-md flex items-center justify-center p-3 sm:p-3.5 mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+                <SkillIcon skillKey={skill.name} />
+              </div>
 
-              const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-                if (!ref.current) return;
-                const rect = ref.current.getBoundingClientRect();
-                const width = rect.width;
-                const height = rect.height;
-                const mouseX = e.clientX - rect.left;
-                const mouseY = e.clientY - rect.top;
-                const xPct = mouseX / width - 0.5;
-                const yPct = mouseY / height - 0.5;
-                x.set(xPct);
-                y.set(yPct);
-              };
+              {/* Skill Name */}
+              <h3 className="text-white font-extrabold text-xs sm:text-sm md:text-base leading-snug tracking-wide group-hover:text-amber-300 transition-colors">
+                {skill.name}
+              </h3>
+            </motion.div>
+          ))}
+        </div>
 
-              const handleMouseLeave = () => {
-                x.set(0);
-                y.set(0);
-              };
-
-              return (
-                <motion.div
-                  ref={ref}
-                  onMouseMove={handleMouseMove}
-                  onMouseLeave={handleMouseLeave}
-                  style={{
-                    rotateX,
-                    rotateY,
-                    transformStyle: "preserve-3d",
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  initial={{ opacity: 0, y: 50, rotateX: -15 }}
-                  whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
-                  className="relative group cursor-pointer"
-                >
-                  <motion.div
-                    animate={{
-                      y: [0, -10, 0],
-                    }}
-                    transition={{
-                      duration: 3 + index * 0.2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="relative h-64 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-3xl shadow-xl hover:shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden p-6"
-                    style={{ transformStyle: "preserve-3d" }}
-                  >
-                    {/* Effet de brillance */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-500/0 via-slate-500/20 to-indigo-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    {/* Icône emoji flottante */}
-                    <motion.div
-                      animate={{
-                        rotate: [0, 10, -10, 0],
-                        scale: [1, 1.1, 1],
-                      }}
-                      transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                      className="text-6xl mb-4 text-center flex items-center justify-center"
-                      style={{ transform: "translateZ(50px)" }}
-                    >
-                      <span>{skill.icon}</span>
-                    </motion.div>
-
-                    {/* Nom */}
-                    <h3
-                      className="text-xl font-bold text-center mb-6 text-gray-900 dark:text-white group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors"
-                      style={{ transform: "translateZ(30px)" }}
-                    >
-                      {skill.name}
-                    </h3>
-
-                    {/* Barre de progression circulaire */}
-                    <div className="relative w-32 h-32 mx-auto" style={{ transform: "translateZ(40px)" }}>
-                      <svg className="transform -rotate-90 w-full h-full" viewBox="0 0 120 120">
-                        <circle
-                          cx="60"
-                          cy="60"
-                          r="50"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="8"
-                          className="text-gray-200 dark:text-gray-800"
-                        />
-                        <motion.circle
-                          cx="60"
-                          cy="60"
-                          r="50"
-                          fill="none"
-                          stroke="url(#skillGradient)"
-                          strokeWidth="8"
-                          strokeLinecap="round"
-                          strokeDasharray={314}
-                          initial={{ strokeDashoffset: 314 }}
-                          whileInView={{ strokeDashoffset: 314 - (skill.level / 5) * 314 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 2, delay: index * 0.1, ease: "easeOut" }}
-                        />
-                        <defs>
-                          <linearGradient id="skillGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#3b82f6" />
-                            <stop offset="100%" stopColor="#a855f7" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-2xl font-bold bg-gradient-to-r from-slate-600 to-indigo-600 dark:from-slate-400 dark:to-indigo-400 bg-clip-text text-transparent">
-                          {skill.level}/5
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Points décoratifs flottants */}
-                    {[...Array(3)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        animate={{
-                          x: [0, Math.random() * 20 - 10],
-                          y: [0, Math.random() * 20 - 10],
-                          opacity: [0.3, 0.7, 0.3],
-                        }}
-                        transition={{
-                          duration: 2 + i,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                        className="absolute w-2 h-2 bg-slate-500 dark:bg-slate-400 rounded-full"
-                        style={{
-                          top: `${20 + i * 30}%`,
-                          left: `${10 + i * 20}%`,
-                        }}
-                      />
-                    ))}
-                  </motion.div>
-                </motion.div>
-              );
-            };
-
-            return <SkillCard key={index} />;
-          })}
-        </motion.div>
       </div>
     </section>
   );

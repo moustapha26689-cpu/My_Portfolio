@@ -1,240 +1,173 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import { safeTranslateRaw } from '@/lib/translationUtils';
+import Image from 'next/image';
+import { motion, useScroll, useTransform, Variants } from 'framer-motion';
+import { useRef } from 'react';
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.18,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const groupVariants: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
 
 export default function About() {
-  const t = useTranslations('about');
+  const tAbout = useTranslations('about');
+  const tHero = useTranslations('hero');
+  const tContact = useTranslations('contact');
+  const ref = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
+  const imageY = useTransform(scrollYProgress, [0, 1], [25, -25]);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6
-      }
-    }
-  };
+  const rawPhone = tContact('phone', { defaultValue: '+212 710-928562' });
+  const cleanPhone = rawPhone.replace(/[^0-9+]/g, '');
+  const rawEmail = tContact('email', { defaultValue: 'moustapha26689@gmail.com' });
+  const rawWhatsapp = tContact('whatsapp', { defaultValue: '+212710928562' });
+  const cleanWhatsapp = rawWhatsapp.replace(/[^0-9]/g, '');
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-gradient-to-b from-white via-gray-50 to-white dark:from-black dark:via-gray-900 dark:to-black relative overflow-hidden">
-      {/* Effets de fond animés */}
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, 50, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute top-0 left-1/4 w-96 h-96 bg-slate-600/10 dark:bg-slate-500/5 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            x: [0, -100, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/10 dark:bg-indigo-500/5 rounded-full blur-3xl"
-        />
-      </div>
-
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
-        {/* Titre */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
+    <section id="about" ref={ref} className="py-20 md:py-32 bg-white dark:bg-[#0c0827] overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        {/* Section Title */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-slate-700 via-slate-800 to-indigo-700 dark:from-slate-300 dark:via-slate-200 dark:to-indigo-400 bg-clip-text text-transparent px-4">
-            {t('title')}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight flex items-center justify-center gap-2 sm:gap-3">
+            <span className="text-[#1a1145] dark:text-white">{tAbout('title', { defaultValue: 'À Propos' })}</span>
+            <span className="text-[#4a00e0]">{tAbout('me', { defaultValue: 'de Moi' })}</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-slate-600 to-indigo-600 dark:from-slate-400 dark:to-indigo-400 mx-auto rounded-full" />
+          <div className="w-20 sm:w-24 h-1.5 bg-[#4a00e0] mx-auto mt-4 rounded-full" />
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="space-y-16"
-        >
-          {/* Description principale */}
-          <motion.div
-            variants={itemVariants}
-            className="max-w-4xl mx-auto text-center"
+        {/* Two-Column Layout (Responsive Stack on Mobile) */}
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 sm:gap-12 lg:gap-16">
+          
+          {/* Left Column: Profile Photo */}
+          <motion.div 
+            style={{ y: imageY }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6 }}
+            className="w-full lg:w-1/2 flex justify-center lg:justify-end"
           >
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6 px-4">
-              {t('description')}
-            </p>
-            {t('detailedDescription') && t('detailedDescription') !== 'about.detailedDescription' && (
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed px-4">
-                {t('detailedDescription')}
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-100 dark:border-slate-800">
+              <Image 
+                src="/images/profile/profile.jpg"
+                alt="Mouhamadou Moustapha Fall"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 256px, (max-width: 1024px) 384px, 450px"
+                priority
+              />
+            </div>
+          </motion.div>
+
+          {/* Right Column: Animated Presentation by Sequential Groups */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="w-full lg:w-1/2 flex flex-col items-start text-left space-y-5 sm:space-y-6"
+          >
+            
+            {/* Groupe 1: Identité & Rôle */}
+            <motion.div variants={groupVariants} className="w-full">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white leading-tight">
+                Mouhamadou Moustapha Fall
+              </h3>
+              <p className="text-base sm:text-lg md:text-xl font-bold mt-1.5 text-[#4a00e0] dark:text-purple-400">
+                {tHero('subtitle')}
               </p>
-            )}
-          </motion.div>
+            </motion.div>
 
-          {/* Points clés */}
-          {(() => {
-            const keyPoints = safeTranslateRaw(t, 'keyPoints');
-            if (Array.isArray(keyPoints) && keyPoints.length > 0) {
-                return (
-                  <motion.div
-                    variants={itemVariants}
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-                  >
-                    {(keyPoints as string[]).map((point: string, index: number) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700 transition-all duration-300"
+            {/* Groupe 2: Paragraphe de présentation */}
+            <motion.div variants={groupVariants} className="w-full">
+              <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                {tAbout('description')}
+              </p>
+            </motion.div>
+
+            {/* Groupe 3: Coordonnées Minimalistes & Cliquables (Style ultra épuré façon Nassim Oulkaid) */}
+            <motion.div variants={groupVariants} className="w-full pt-1 space-y-2.5 sm:space-y-3">
+              
+              {/* Ligne Téléphone */}
+              <div className="flex flex-wrap items-baseline gap-2 text-sm sm:text-base md:text-lg">
+                <span className="font-bold text-[#4a00e0] dark:text-purple-400">
+                  {tContact('phoneLabel', { defaultValue: 'Phone' })} :
+                </span>
+                <a
+                  href={`tel:${cleanPhone}`}
+                  className="font-semibold text-slate-800 dark:text-slate-200 hover:text-[#4a00e0] dark:hover:text-purple-400 hover:underline transition-colors py-1 cursor-pointer"
+                  title="Appeler"
                 >
-                  <div className="flex items-start">
-                    <motion.div
-                      animate={{ rotate: [0, 10, -10, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
-                      className="text-3xl mr-4"
-                    >
-                      ✨
-                    </motion.div>
-                    <p className="text-gray-700 dark:text-gray-300 font-medium text-lg flex-1">
-                      {point}
-                    </p>
-                  </div>
-                </motion.div>
-                    ))}
-                  </motion.div>
-                );
-              }
-            return null;
-          })()}
+                  {rawPhone}
+                </a>
+              </div>
 
-          {/* Section Objectifs et Valeurs */}
-          <motion.div
-            variants={itemVariants}
-            className="grid md:grid-cols-2 gap-8"
-          >
-            {/* Objectifs */}
-            {t('objectives') && t('objectives') !== 'about.objectives' && (
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.02 }}
-                className="relative bg-gradient-to-br from-slate-50 via-slate-100 to-indigo-50 dark:from-slate-900/30 dark:via-slate-800/30 dark:to-indigo-900/20 rounded-3xl p-8 shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden group"
-              >
-                {/* Effet de brillance au hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-500/0 via-slate-500/10 to-indigo-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative z-10">
-                  <div className="flex items-center mb-6">
-                    <motion.div
-                      animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      className="w-16 h-16 bg-gradient-to-r from-slate-600 to-indigo-600 dark:from-slate-500 dark:to-indigo-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg"
-                    >
-                      <span className="text-3xl">🎯</span>
-                    </motion.div>
-                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
-                      {t('objectivesTitle') || 'Mes Objectifs'}
-                    </h3>
-                  </div>
-                  <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {t('objectives')}
-                  </p>
-                </div>
-              </motion.div>
-            )}
+              {/* Ligne WhatsApp */}
+              <div className="flex flex-wrap items-baseline gap-2 text-sm sm:text-base md:text-lg">
+                <span className="font-bold text-[#16a34a] dark:text-[#25D366]">
+                  WhatsApp :
+                </span>
+                <a
+                  href={`https://wa.me/${cleanWhatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-slate-800 dark:text-slate-200 hover:text-[#16a34a] dark:hover:text-[#25D366] hover:underline transition-colors py-1 cursor-pointer"
+                  title="Discuter sur WhatsApp"
+                >
+                  {rawPhone}
+                </a>
+              </div>
 
-            {/* Valeurs */}
-            {(() => {
-              const values = safeTranslateRaw(t, 'values');
-              if (Array.isArray(values) && values.length > 0) {
-                  return (
-                    <motion.div
-                      initial={{ opacity: 0, x: 50 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6 }}
-                      whileHover={{ scale: 1.02 }}
-                      className="relative bg-gradient-to-br from-indigo-50 via-slate-50 to-slate-100 dark:from-indigo-900/20 dark:via-slate-800/30 dark:to-slate-900/30 rounded-3xl p-8 shadow-xl border border-indigo-200 dark:border-indigo-800 overflow-hidden group"
-                    >
-                      {/* Effet de brillance au hover */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-slate-500/10 to-slate-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      
-                      <div className="relative z-10">
-                        <div className="flex items-center mb-6">
-                          <motion.div
-                            animate={{ rotate: [0, -360] }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            className="w-16 h-16 bg-gradient-to-r from-indigo-600 to-slate-600 dark:from-indigo-500 dark:to-slate-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg"
-                          >
-                            <span className="text-3xl">💎</span>
-                          </motion.div>
-                          <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
-                            {t('valuesTitle') || 'Mes Valeurs'}
-                          </h3>
-                        </div>
-                        <div className="space-y-4">
-                          {(values as string[]).map((value: string, index: number) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
-                        whileHover={{ x: 5 }}
-                        className="flex items-center p-4 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-sm border border-white/50 dark:border-gray-700/50"
-                      >
-                        <motion.span
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
-                          className="text-2xl mr-4"
-                        >
-                          ✨
-                        </motion.span>
-                        <span className="text-gray-700 dark:text-gray-300 font-medium text-lg">
-                          {value}
-                        </span>
-                      </motion.div>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                }
-              return null;
-            })()}
+              {/* Ligne Email */}
+              <div className="flex flex-wrap items-baseline gap-2 text-sm sm:text-base md:text-lg">
+                <span className="font-bold text-[#4a00e0] dark:text-purple-400">
+                  {tContact('emailLabel', { defaultValue: 'Email' })} :
+                </span>
+                <a
+                  href={`mailto:${rawEmail}`}
+                  className="font-semibold text-slate-800 dark:text-slate-200 hover:text-[#4a00e0] dark:hover:text-purple-400 hover:underline transition-colors py-1 cursor-pointer break-all"
+                  title="Envoyer un email"
+                >
+                  {rawEmail}
+                </a>
+              </div>
+
+            </motion.div>
+
           </motion.div>
-        </motion.div>
+
+        </div>
       </div>
     </section>
   );

@@ -14,34 +14,61 @@
   },
   "hero": {
     "title": "Mouhamadou Moustapha Fall",
-    "subtitle": "MSc Student in Financial & Accounting Management",
+    "headline": "Accounting Associate @TPA | ENCG Fès Alumnus",
+    "subtitle": "Accounting Associate @TPA | ENCG Fès Alumnus",
+    "typewriterSpecializations": [
+      "Accounting Associate",
+      "Junior Auditor & Consultant",
+      "E-Invoicing Specialist",
+      "Pennylane & Digitalization Expert",
+      "ENCG Fès Alumnus"
+    ],
+    "typewriterItems": [
+      "Bookkeeping & Account Review",
+      "Pennylane & OCR Integration",
+      "Corporate Taxation (VAT, CIT)",
+      "Bank Reconciliations",
+      "Financial Digitalization",
+      "French Accounting Standards"
+    ],
     "ctaPrimary": "Learn More",
     "ctaSecondary": "My Journey",
-    "quote": "Together we can grow professionally."
+    "cvDownloadUrl": "/cv.pdf",
+    "quote": "Together we can grow professionally.",
+    "hiThere": "Hi There,",
+    "imName": "I'm Mouhamadou Moustapha",
+    "lastName": "Fall",
+    "iAmInto": "Expertise in:",
+    "aboutMe": "About Me"
   },
   "about": {
-    "title": "About Me",
-    "description": "Passionate about finance and accounting, I am currently a Master 2 student in Financial & Accounting Management at ENCG Fès. My academic background and professional experiences have allowed me to develop solid expertise in these fields.",
-    "detailedDescription": "Holder of a Baccalaureate in Management, Economics and Management with Good Mention, my journey is marked by a constant passion for academic and professional excellence.",
+    "title": "About",
+    "description": "Accounting Associate at Tree Partners Advisory (Casablanca) and graduate with a Master's in Financial & Accounting Management from ENCG Fès, combining rigor in French accounting standards with modern digital automation tools.",
+    "detailedDescription": "Holding a Master's degree from ENCG Fès, I authored my research thesis on 'Digitalization of accounting processes and financial information reliability'. Today, I support businesses in financial accounting, financial statement analysis, tax compliance, and modern workflow automation including Pennylane and e-invoicing transition.",
+    "thesisTitle": "Digitalization of accounting processes and financial information reliability",
+    "thesisSubtitle": "Master's Thesis — ENCG Fès",
     "keyPoints": [
-      "Practical experience in public and private sectors",
-      "Leadership and associative engagement",
-      "Volunteer for the Africa Cup of Nations Morocco 2025",
-      "Commitment to projects with social impact"
+      "Accounting Associate at Tree Partners Advisory (Casablanca)",
+      "Master's Degree from ENCG Fès",
+      "Thesis: Digitalization of accounting processes and financial information reliability",
+      "Dual Pennylane Certifications (Accounting Interface & E-Invoicing Specialist)",
+      "Community Leadership: UGESM Fès Secretary General & CAN 2025 Volunteer/Coordinator"
     ],
     "valuesTitle": "My Values",
     "values": [
       "Excellence and professional rigor",
-      "Integrity and ethics",
-      "Innovation and adaptation",
-      "Collaboration and teamwork",
-      "Commitment and social responsibility"
+      "Financial integrity and ethics",
+      "Digital innovation & automation",
+      "Teamwork and collaboration",
+      "Civic engagement and social responsibility"
     ],
     "objectivesTitle": "My Objectives",
-    "objectives": "My ambition is to become a Chartered Accountant and Statutory Auditor. I wish to acquire the necessary skills to support companies in their financial management, ensure the compliance of their accounts and contribute to financial transparency. My goal is to become a recognized professional, capable of providing high-level expertise and playing a key role in economic development."
+    "objectives": "My ambition is to progress toward becoming a Chartered Accountant and Statutory Auditor. I aim to assist organizations in strengthening the reliability of their financial reporting, optimizing treasury management, and driving digital finance transformation in the era of mandatory e-invoicing.",
+    "me": "Me",
+    "fullName": "Mouhamadou Moustapha Fall"
   },
   "experience": {
-    "title": "Professional Experience",
+    "title": "Experience.",
     "gallery": "Gallery",
     "aboutExperience": "About this experience",
     "mainResponsibilities": "Main Responsibilities",
@@ -53,7 +80,42 @@
     "clickForDetails": "Click on an experience to see details",
     "items": [
       {
+        "title": "Accounting Associate",
+        "role": "Accounting Associate",
+        "company": "Tree Partners Advisory",
+        "period": "Jan 2026 - Present",
+        "location": "Casablanca, Morocco · On-site",
+        "description": "Accounting management under French accounting standards, balance analysis, bank reconciliations, Pennylane workflow/OCR automation, and corporate tax compliance (VAT, Corporate Tax).",
+        "detailedDescription": "At Tree Partners Advisory in Casablanca, I handle client accounts governed by French accounting standards. My scope covers bookkeeping and account review, general and subsidiary balance analysis, bank reconciliations, and automated document processing via Pennylane OCR. I also ensure accurate tax declaration submissions (VAT, IS) and periodic closing compliance.",
+        "details": [
+          "Strict application of French Accounting Standards (Référentiel Français)",
+          "Balance sheet and general ledger analysis and account reconciliation",
+          "Bank reconciliations and regular account matching",
+          "Workflow automation for purchase/sales invoices and OCR processing on Pennylane",
+          "Preparation and filing of tax returns (VAT, Corporate Tax / IS)"
+        ],
+        "missions": [
+          "Strict application of French Accounting Standards (Référentiel Français)",
+          "Balance sheet and general ledger analysis and account reconciliation",
+          "Bank reconciliations and regular account matching",
+          "Workflow automation for purchase/sales invoices and OCR processing on Pennylane",
+          "Preparation and filing of tax returns (VAT, Corporate Tax / IS)"
+        ],
+        "technologies": [
+          "Pennylane",
+          "TVA",
+          "IS",
+          "Référentiel Français",
+          "Rapprochement bancaire"
+        ],
+        "images": [],
+        "videos": [],
+        "attestationUrl": "/images/attestations/tree-partners-advisory/attestation.pdf",
+        "attestationImage": ""
+      },
+      {
         "title": "Accounting Assistant",
+        "role": "Accounting Assistant",
         "company": "Fidu Soumaya",
         "period": "May 2025 (1 mo)",
         "location": "Fès, Fès-Meknès, Morocco · On-site",
@@ -66,14 +128,30 @@
           "Automatic and manual account matching",
           "Control and validation of accounting documents"
         ],
-        "technologies": ["Synergie", "Excel", "General Accounting"],
-        "images": ["/images/experiences/fidu-soumaya/moi-1.jpg"],
-        "videos": ["/media/experiences/fidu-soumaya/moi-2.mp4"],
+        "missions": [
+          "Complete management of client accounting cycle with Synergie",
+          "Monthly bank reconciliations",
+          "Electronic submission of VAT declarations",
+          "Automatic and manual account matching",
+          "Control and validation of accounting documents"
+        ],
+        "technologies": [
+          "Synergie",
+          "Excel",
+          "General Accounting"
+        ],
+        "images": [
+          "/images/experiences/fidu-soumaya/moi-1.jpg"
+        ],
+        "videos": [
+          "/media/experiences/fidu-soumaya/moi-2.mp4"
+        ],
         "attestationUrl": "/images/attestations/fidu-soumaya/attestation.pdf",
         "attestationImage": ""
       },
       {
         "title": "Administrative and Financial Assistant",
+        "role": "Administrative and Financial Assistant",
         "company": "General Treasury of the Kingdom",
         "period": "Jan 2025 (1 mo)",
         "location": "Fès, Fès-Meknès, Morocco · On-site",
@@ -86,43 +164,108 @@
           "Compliance control with public standards",
           "Rigorous monitoring of financial operations"
         ],
-        "technologies": ["GIR", "SIAB", "GID", "Public Accounting"],
-        "images": ["/images/experiences/tresorerie-generale/moi-1.jpg"],
+        "missions": [
+          "Daily cash management (receipts/disbursements)",
+          "Use of GIR, SIAB, and GID systems",
+          "Preparation of accounting entries for the State",
+          "Compliance control with public standards",
+          "Rigorous monitoring of financial operations"
+        ],
+        "technologies": [
+          "GIR",
+          "SIAB",
+          "GID",
+          "Public Accounting"
+        ],
+        "images": [
+          "/images/experiences/tresorerie-generale/moi-1.jpg"
+        ],
+        "videos": [],
         "attestationUrl": "/images/attestations/tresorerie-generale/attestation.pdf",
         "attestationImage": ""
       },
       {
         "title": "Business Strategy Internship",
+        "role": "Business Strategy Internship",
         "company": "Institute of Transformation Arts",
         "period": "Dec 2024 - Feb 2025 (3 mos)",
         "location": "Paris, Île-de-France, France · Remote",
         "description": "Ensure the promotion and management of services as an authorized representative, providing solutions adapted to the specific needs of the African market.",
-        "attestationUrl": "/images/attestations/institut-transformation/attestation.pdf"
+        "detailedDescription": "As a business strategy intern, I participated in deploying training and consulting programs tailored to the African market, analyzing partnership opportunities and expanding outreach.",
+        "details": [
+          "Promotion and management of institute services",
+          "Tailoring solutions to African market requirements",
+          "Prospection and strategic partnership development"
+        ],
+        "missions": [
+          "Promotion and management of institute services",
+          "Tailoring solutions to African market requirements",
+          "Prospection and strategic partnership development"
+        ],
+        "technologies": [
+          "Business Development",
+          "Strategy",
+          "Market Analysis"
+        ],
+        "images": [],
+        "videos": [],
+        "attestationUrl": "/images/attestations/institut-transformation/attestation.pdf",
+        "attestationImage": ""
       },
       {
         "title": "Accounting Assistant",
+        "role": "Accounting Assistant",
         "company": "Defi expertise",
         "period": "May 2024 - Jun 2024 (1 mo)",
         "location": "Beauséjour, Casablanca, Morocco · On-site",
         "description": "Entry of accounting entries (purchases, sales, OD) using professional software. Organization of supporting documents. Management of VAT refund files. Bank reconciliations.",
-        "images": ["/images/experiences/defi-expertise/moi-1.jpg"],
-        "attestationUrl": "/images/attestations/defi-expertise/attestation.pdf"
+        "detailedDescription": "Hands-on internship at Defi Expertise: recording accounting transactions, preparing VAT refund documentation for the tax administration, and reconciling bank accounts.",
+        "details": [
+          "Recording of purchase, sales, and miscellaneous accounting entries",
+          "Classification and archiving of supporting vouchers",
+          "Preparation and monitoring of VAT refund files",
+          "Monthly bank reconciliations"
+        ],
+        "missions": [
+          "Recording of purchase, sales, and miscellaneous accounting entries",
+          "Classification and archiving of supporting vouchers",
+          "Preparation and monitoring of VAT refund files",
+          "Monthly bank reconciliations"
+        ],
+        "technologies": [
+          "General Accounting",
+          "VAT",
+          "Bank Reconciliation",
+          "Excel"
+        ],
+        "images": [
+          "/images/experiences/defi-expertise/moi-1.jpg"
+        ],
+        "videos": [],
+        "attestationUrl": "/images/attestations/defi-expertise/attestation.pdf",
+        "attestationImage": ""
       }
-    ]
+    ],
+    "viewCert": "View Certificate"
   },
   "education": {
-    "title": "Education",
+    "title": "Education.",
     "items": [
       {
         "degree": "Master, Financial & Accounting Management",
         "school": "National School of Commerce and Management of Fès (ENCG FES)",
-        "period": "Sep 2021 - Jul 2026"
+        "period": "2021 - 2026",
+        "grade": "Graduated",
+        "thesis": "Digitalization of accounting processes and financial information reliability",
+        "note": "Graduated. Thesis: 'Digitalization of accounting processes and financial information reliability'",
+        "context": "Prestigious business school curriculum specializing in corporate finance, auditing, and accounting management in Morocco.",
+        "imagePlaceholder": "/images/education/encg-fes.jpg"
       },
       {
         "degree": "Baccalaureate, Management, Economics and Management",
         "school": "Technical and Commercial High School el hadji abdoulaye niass",
-        "period": "Oct 2018 - Jul 2021",
-        "grade": "GOOD MENTION",
+        "period": "2018 - 2021",
+        "grade": "Graduated",
         "note": "Valedictorian in final year"
       }
     ]
@@ -130,6 +273,23 @@
   "skills": {
     "title": "Skills",
     "items": [
+      {
+        "name": "Pennylane",
+        "level": "5",
+        "iconUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pennylane.svg"
+      },
+      {
+        "name": "E-Invoicing",
+        "level": "5"
+      },
+      {
+        "name": "French Accounting Standards",
+        "level": "5"
+      },
+      {
+        "name": "Corporate Taxation",
+        "level": "5"
+      },
       {
         "name": "Accounting",
         "level": "5"
@@ -164,18 +324,131 @@
         "name": "Finance",
         "level": "5"
       }
+    ],
+    "categories": [
+      {
+        "name": "Accounting & Taxation",
+        "skills": [
+          {
+            "name": "French Accounting Standards",
+            "iconKey": "book",
+            "officialBadge": true
+          },
+          {
+            "name": "Corporate Taxation (VAT, IS)",
+            "iconKey": "tax",
+            "officialBadge": true
+          },
+          {
+            "name": "General Accounting & Review",
+            "iconKey": "ledger",
+            "officialBadge": false
+          },
+          {
+            "name": "Internal Controls & Audit",
+            "iconKey": "audit",
+            "officialBadge": false
+          }
+        ]
+      },
+      {
+        "name": "Digitalization & FinTech",
+        "skills": [
+          {
+            "name": "Pennylane (Accounting & OCR)",
+            "iconKey": "pennylane",
+            "officialBadge": true
+          },
+          {
+            "name": "Electronic Invoicing (2026 Reform)",
+            "iconKey": "einvoice",
+            "officialBadge": true
+          },
+          {
+            "name": "Advanced Microsoft Excel",
+            "iconKey": "excel",
+            "officialBadge": true
+          },
+          {
+            "name": "Microsoft Power BI & Integration",
+            "iconKey": "powerbi",
+            "officialBadge": true
+          },
+          {
+            "name": "Synergie Software",
+            "iconKey": "synergie",
+            "officialBadge": false
+          }
+        ]
+      },
+      {
+        "name": "Finance & Treasury",
+        "skills": [
+          {
+            "name": "Financial Analysis & Ratios",
+            "iconKey": "analysis",
+            "officialBadge": false
+          },
+          {
+            "name": "Bank Reconciliations & Cash Flow",
+            "iconKey": "cash",
+            "officialBadge": false
+          },
+          {
+            "name": "Business Financing",
+            "iconKey": "financing",
+            "officialBadge": false
+          }
+        ]
+      }
     ]
   },
   "certifications": {
-    "title": "Certifications",
+    "title": "Certifications.",
     "items": [
+      {
+        "name": "Pennylane Certification — E-Invoicing Specialist",
+        "issuer": "Pennylane",
+        "date": "2026",
+        "credentialId": "68dcf62b822e498e1e043768",
+        "skills": "Electronic Invoicing · Pennylane · Tax Compliance · 2026 Reform",
+        "documentUrl": "/images/certifications/pennylane/specialiste-facture-electronique.pdf",
+        "verificationUrl": "https://verify.pennylane.com/68dcf62b822e498e1e043768",
+        "imageUrl": "",
+        "tags": [
+          "E-Invoicing",
+          "Pennylane",
+          "Tax Compliance"
+        ]
+      },
+      {
+        "name": "Pennylane Certification — Accounting Interface",
+        "issuer": "Pennylane",
+        "date": "2024",
+        "credentialId": "66559314a95f1d77c401f4c2",
+        "skills": "Pennylane · Accounting · OCR Automation · Bank Reconciliation",
+        "documentUrl": "/images/certifications/pennylane/interface-comptabilite.pdf",
+        "verificationUrl": "https://verify.pennylane.com/66559314a95f1d77c401f4c2",
+        "imageUrl": "",
+        "tags": [
+          "Pennylane",
+          "Accounting",
+          "Automation"
+        ]
+      },
       {
         "name": "EF SET English Certificate 53/100 (B2 Upper Intermediate)",
         "issuer": "EF SET",
         "date": "Nov 2025",
         "credentialId": "",
+        "skills": "Professional English · B2 Upper Intermediate",
         "documentUrl": "/images/certifications/ef-set/certificate.pdf",
-        "imageUrl": ""
+        "verificationUrl": "",
+        "imageUrl": "",
+        "tags": [
+          "English",
+          "B2 Upper Intermediate"
+        ]
       },
       {
         "name": "Excel: Integrate data into Power BI",
@@ -184,18 +457,32 @@
         "credentialId": "",
         "skills": "Microsoft Power BI · Microsoft Excel · Data Integration",
         "documentUrl": "/images/certifications/linkedin-excel/certificate.pdf",
-        "imageUrl": ""
+        "verificationUrl": "",
+        "imageUrl": "",
+        "tags": [
+          "Power BI",
+          "Excel",
+          "Data Integration"
+        ]
       },
       {
         "name": "The fundamentals of finance (2021)",
         "issuer": "LinkedIn",
         "date": "Nov 2025",
         "credentialId": "",
-        "skills": "Finance",
+        "skills": "Corporate Finance · Financial Markets",
         "documentUrl": "/images/certifications/linkedin-finance/certificate.pdf",
-        "imageUrl": ""
+        "verificationUrl": "",
+        "imageUrl": "",
+        "tags": [
+          "Finance",
+          "Financial Markets"
+        ]
       }
-    ]
+    ],
+    "preview": "Preview",
+    "document": "Document",
+    "openTab": "Open in Tab"
   },
   "awards": {
     "title": "Awards",
@@ -206,25 +493,61 @@
     "items": [
       {
         "test": "Technical Certificate (BT) in Accounting",
-        "score": "Fairly Good Mention",
+        "score": "",
         "date": "Jul 2021",
         "details": "Technical and Commercial High School el hadji abdoulaye niass"
       },
       {
         "test": "Vocational Training Certificate (BEP) in Accounting",
-        "score": "Fairly Good Mention",
+        "score": "",
         "date": "Jul 2020",
         "details": "Technical and Commercial High School el hadji abdoulaye niass"
       }
     ]
   },
   "volunteer": {
-    "title": "Engagement & Leadership",
+    "title": "Volunteer.",
     "gallery": "Gallery",
     "video": "Video",
     "aboutEngagement": "About this engagement",
     "missionsAndResponsibilities": "Missions and responsibilities",
     "items": [
+      {
+        "role": "Secretary General",
+        "organization": "General Union of Senegalese Pupils, Students and Interns in Morocco (UGESM) - Fès Section",
+        "period": "Oct 2024 - May 2026 (Closing Mandate)",
+        "description": "Secretary General of the Fès regional section, mandate successfully concluded in May 2026.",
+        "detailedDescription": "As Secretary General of UGESM Fès Section, I coordinated all administrative and organizational activities until the completion of my mandate in May 2026. I managed official communications, student welcome and integration initiatives, and organized major socio-cultural and educational conferences.",
+        "category": "Social Services & Community Engagement",
+        "achievements": [
+          "Coordinated 8 major community and academic events",
+          "Managed administrative governance of the union until May 2026",
+          "Supported the orientation and onboarding of 300+ students and interns",
+          "Strengthened partnerships with diplomatic missions and regional institutions"
+        ],
+        "images": [
+          "/images/volunteer/ugesm/moi-1.jpg",
+          "/images/volunteer/ugesm/moi-2.jpg"
+        ],
+        "videos": [
+          "/media/volunteer/ugesm/moi-3.mp4"
+        ]
+      },
+      {
+        "role": "Volunteer & Coordinator CAN 2025",
+        "organization": "Royal Moroccan Football Federation (FRMF) & CAF - Africa Cup of Nations Morocco 2025",
+        "period": "Dec 2025 - Jan 2026",
+        "description": "Official volunteer program and operational coordination for the Africa Cup of Nations Morocco 2025.",
+        "detailedDescription": "Selected among over 4,000 applicants to participate in the official volunteer program and perform key coordination duties during the Africa Cup of Nations Morocco 2025 organized by FRMF and CAF. Actively contributed to stadium logistics, credential issuance, supporter flow management, and VIP hospitality services.",
+        "category": "International Sports Events",
+        "achievements": [
+          "Selected among 4,000+ candidates for the official tournament program",
+          "Active operational coordination role on competition sites",
+          "Management of spectator flows, ticketing assistance, and delegation protocol",
+          "Key contribution to the successful delivery of a premier continental sports tournament"
+        ],
+        "images": []
+      },
       {
         "role": "President UDEI-ENCG FES",
         "organization": "National School of Commerce and Management of Fès (ENCG FES)",
@@ -238,7 +561,9 @@
           "Created a mentoring program for new students",
           "Successfully mediated 20+ student-administration conflicts"
         ],
-        "images": ["/images/volunteer/udei-encg/moi-1.jpg"]
+        "images": [
+          "/images/volunteer/udei-encg/moi-1.jpg"
+        ]
       },
       {
         "role": "President ECOGEST LTCEAN CLUB",
@@ -254,39 +579,9 @@
           "Developed a network of 200+ active members"
         ],
         "images": []
-      },
-      {
-        "role": "Secretary General",
-        "organization": "General Union of Senegalese Pupils, Students and Interns in Morocco - Meknès Regional Section",
-        "period": "Oct 2024 - Nov 2025 (1 yr 2 mos)",
-        "description": "FES SECTION",
-        "detailedDescription": "As Secretary General of UGESM Fès Section, I coordinated the administrative and organizational activities of the association. I managed internal and external communication, organized community events, and represented the association in various regional bodies.",
-        "category": "Social Services",
-        "achievements": [
-          "Coordinated 8 major community events",
-          "Efficient administrative management of the association",
-          "Strengthened community ties",
-          "Representation in regional bodies"
-        ],
-        "images": ["/images/volunteer/ugesm/moi-1.jpg", "/images/volunteer/ugesm/moi-2.jpg"],
-        "videos": ["/media/volunteer/ugesm/moi-3.mp4"]
-      },
-      {
-        "role": "CAN 2025 Volunteer",
-        "organization": "Royal Moroccan Football Federation (FRMF) - Africa Cup of Nations Morocco 2025",
-        "period": "Dec 2025 - Jan 2026",
-        "description": "Official volunteer program for the Africa Cup of Nations Morocco 2025",
-        "detailedDescription": "Selected among 4000 volunteers to participate in the official program of the Africa Cup of Nations Morocco 2025 organized by FRMF and CAF. This prestigious tournament will take place from December 21, 2025 to January 18, 2026 in 6 cities and 9 stadiums in Morocco. As a volunteer, I will contribute to various organizational aspects of the tournament, including media activities, accreditations, hospitality, welcoming supporters.",
-        "category": "Sports Events",
-        "achievements": [
-          "Selected among 4000 candidates",
-          "Participation in a major continental event",
-          "Contribution to organizing an international tournament",
-          "Welcoming fans and visitors"
-        ],
-        "images": []
       }
-    ]
+    ],
+    "at": "at"
   },
   "gallery": {
     "title": "Gallery",
@@ -303,7 +598,7 @@
     "phone": "+212 710-928562",
     "whatsapp": "+212710928562",
     "linkedin": "https://www.linkedin.com/in/mouhamadou-moustapha-fall-65283a291/",
-    "location": "Fès, Morocco",
+    "location": "Casablanca / Fès, Morocco",
     "availability": "Available for opportunities",
     "emailLabel": "Email",
     "phoneLabel": "Phone",
@@ -311,6 +606,10 @@
     "availabilityLabel": "Availability",
     "popupTitle": "Would you like to get in touch?",
     "popupMessage": "Choose your preferred way to contact me",
-    "popupDismiss": "Maybe later"
+    "popupDismiss": "Maybe later",
+    "resumeBtn": "Resume >",
+    "callBtn": "Call",
+    "whatsappBtn": "WhatsApp",
+    "emailBtn": "Send Email"
   }
 }

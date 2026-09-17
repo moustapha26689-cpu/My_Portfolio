@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local media and agents
+.agents/
+*.mp4
+ORIGINAL_REQUEST.md
+PROJECT.md

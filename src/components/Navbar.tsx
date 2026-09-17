@@ -1,229 +1,132 @@
 'use client';
 
-import { Link } from 'react-scroll';
-import ThemeSwitcher from './ThemeSwitcher';
-import LanguageSwitcher from './LanguageSwitcher';
-import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useState, useEffect, useRef } from 'react';
-import { 
-  HomeIcon, 
-  UserIcon, 
-  BriefcaseIcon, 
-  AcademicCapIcon,
-  BuildingOfficeIcon,
-  DocumentTextIcon,
-  HeartIcon,
-  TrophyIcon,
-  ChartBarIcon
-} from '@heroicons/react/24/outline';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-scroll';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import LanguageSwitcher from './LanguageSwitcher';
+import ThemeSwitcher from './ThemeSwitcher';
+
+const navItems = [
+  { key: 'home', href: 'hero' },
+  { key: 'about', href: 'about' },
+  { key: 'skills', href: 'skills' },
+  { key: 'education', href: 'education' },
+  { key: 'experience', href: 'experience' },
+  { key: 'certifications', href: 'certifications' },
+];
 
 export default function Navbar() {
   const t = useTranslations('nav');
-  const [activeSection, setActiveSection] = useState('hero');
-  const [isScrolled, setIsScrolled] = useState(false);
-  const navScrollRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const navItems = [
-    { key: 'home', href: 'hero', icon: HomeIcon },
-    { key: 'about', href: 'about', icon: UserIcon },
-    { key: 'skills', href: 'skills', icon: BriefcaseIcon },
-    { key: 'education', href: 'education', icon: AcademicCapIcon },
-    { key: 'experience', href: 'experience', icon: BuildingOfficeIcon },
-    { key: 'certifications', href: 'certifications', icon: DocumentTextIcon },
-    { key: 'volunteer', href: 'volunteer', icon: HeartIcon },
-    { key: 'awards', href: 'awards', icon: TrophyIcon },
-    { key: 'testScores', href: 'testScores', icon: ChartBarIcon },
-  ];
-
-  // Détecter la section active au scroll
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50);
-
-      // Trouver la section active
-      const sections = navItems.map(item => item.href);
-      let currentActive = 'hero';
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          // Si la section est visible dans le viewport (avec un offset pour la navbar)
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            currentActive = sections[i];
-            break;
-          }
-        }
-      }
-
-      setActiveSection(currentActive);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Appel initial pour définir la section active au chargement
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Auto-scroll de la barre de navigation mobile pour centrer l'onglet actif
-  useEffect(() => {
-    if (!navScrollRef.current) return;
-    
-    const activeNavItem = navScrollRef.current.querySelector(`[data-section="${activeSection}"]`) as HTMLElement;
-    if (!activeNavItem) return;
-
-    const container = navScrollRef.current;
-    const containerRect = container.getBoundingClientRect();
-    const itemRect = activeNavItem.getBoundingClientRect();
-    
-    // Calculer la position pour centrer l'élément actif
-    const scrollLeft = container.scrollLeft;
-    const itemLeft = activeNavItem.offsetLeft;
-    const itemWidth = activeNavItem.offsetWidth;
-    const containerWidth = container.offsetWidth;
-    
-    // Position cible pour centrer l'élément
-    const targetScroll = itemLeft - (containerWidth / 2) + (itemWidth / 2);
-    
-    // Scroller de manière fluide
-    container.scrollTo({
-      left: targetScroll,
-      behavior: 'smooth'
-    });
-  }, [activeSection]);
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-lg border-b border-gray-200/50 dark:border-gray-800/50' 
-        : 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200/30 dark:border-gray-800/30'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo / Nom - Cliquable pour retourner en haut */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-3"
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-white/95 dark:bg-[#0c0827]/95 backdrop-blur-md shadow-md border-b border-slate-100 dark:border-slate-800' 
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-between h-20">
+          
+          {/* Logo brand (ALWAYS "Moustapha", never translated to "Accueil") */}
+          <div 
+            onClick={scrollToTop} 
+            className="flex-shrink-0 flex items-center gap-2.5 cursor-pointer group"
           >
-            <Link
-              to="hero"
-              smooth={true}
-              duration={500}
-              className="group cursor-pointer"
-            >
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-700 to-indigo-700 dark:from-slate-600 dark:to-indigo-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <span className="text-white font-bold text-lg">MF</span>
-                </div>
-                <div className="hidden sm:block">
-                  <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-slate-700 to-indigo-700 dark:from-slate-300 dark:to-indigo-400 bg-clip-text text-transparent">
-                    M. M. Fall
-                  </h1>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 -mt-1">
-                    Portfolio
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* Navigation Desktop - Toutes les sections */}
-          <div className="hidden lg:flex items-center space-x-1 overflow-x-auto scrollbar-hide mr-6">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = activeSection === item.href;
-              
-              return (
-                <Link
-                  key={item.key}
-                  to={item.href}
-                  spy={true}
-                  smooth={true}
-                  offset={-100}
-                  duration={300}
-                  className={`relative flex items-center space-x-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 cursor-pointer group ${
-                    isActive
-                      ? 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/50'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  <Icon className={`w-5 h-5 transition-transform ${isActive ? 'scale-110' : 'group-hover:scale-110'}`} />
-                  <span className="whitespace-nowrap">{t(item.key)}</span>
-                  
-                  {/* Indicateur de section active */}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeSection"
-                      className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-600 to-indigo-600 dark:from-slate-400 dark:to-indigo-400 rounded-full"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              );
-            })}
+            <div className="w-9 h-9 bg-gradient-to-br from-[#1a1145] to-[#4a00e0] rounded-xl flex items-center justify-center text-white font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform">
+              M
+            </div>
+            <span className="font-extrabold text-xl text-[#1a1145] dark:text-white tracking-tight">
+              Moustapha
+            </span>
           </div>
-
-          {/* Right side: Language Switcher and Theme Switcher */}
-          <div className="flex items-center space-x-4">
-            <LanguageSwitcher />
+          
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            <ul className="flex items-center gap-6">
+              {navItems.map((item) => (
+                <li key={item.key}>
+                  <Link
+                    to={item.href}
+                    spy={true}
+                    smooth={true}
+                    offset={-80}
+                    duration={500}
+                    activeClass="text-[#4a00e0] dark:text-amber-400 font-bold after:content-[''] after:block after:w-full after:h-0.5 after:bg-[#f59e0b] after:mt-1 after:rounded-full"
+                    className="text-slate-600 dark:text-slate-300 hover:text-[#4a00e0] dark:hover:text-amber-300 font-semibold cursor-pointer transition-colors text-sm uppercase tracking-wider"
+                  >
+                    {t(item.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="flex items-center gap-3 pl-4 border-l border-slate-200 dark:border-slate-800">
+              <ThemeSwitcher />
+              <LanguageSwitcher />
+            </div>
+          </div>
+          
+          {/* Mobile Menu Actions */}
+          <div className="md:hidden flex items-center gap-3">
             <ThemeSwitcher />
+            <LanguageSwitcher />
+            <button 
+              onClick={() => setIsOpen(!isOpen)} 
+              className="text-[#1a1145] dark:text-white p-2 rounded-lg bg-slate-100 dark:bg-slate-800 focus:outline-none"
+              aria-label="Toggle Navigation"
+            >
+              {isOpen ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Navigation Mobile - Scroll horizontal avec auto-centrage */}
-      <div className="lg:hidden border-t border-gray-200/50 dark:border-gray-800/50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl">
-        <div 
-          ref={navScrollRef}
-          className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-4 py-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
-        >
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeSection === item.href;
-            
-            return (
-              <Link
-                key={item.key}
-                to={item.href}
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={300}
-                data-section={item.href}
-                className={`flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-xl font-medium transition-all duration-300 cursor-pointer whitespace-nowrap text-xs sm:text-sm snap-center flex-shrink-0 relative ${
-                  isActive
-                    ? 'text-white bg-gradient-to-r from-slate-700 to-indigo-700 dark:from-slate-600 dark:to-indigo-600 shadow-lg scale-105 z-10'
-                    : 'text-gray-700 dark:text-gray-300 bg-gray-100/80 dark:bg-gray-800/50 hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105'
-                }`}
-              >
-                <Icon className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform ${isActive ? 'scale-110' : ''}`} />
-                <span className="font-semibold">{t(item.key)}</span>
-                {/* Indicateur actif animé */}
-                {isActive && (
-                  <motion.div
-                    layoutId="mobileActiveIndicator"
-                    className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-white rounded-full"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </Link>
-            );
-          })}
-        </div>
-      </div>
-
-      <style jsx>{`
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="md:hidden bg-white dark:bg-[#0c0827] border-b border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden"
+          >
+            <ul className="flex flex-col py-5 px-6 space-y-4">
+              {navItems.map((item) => (
+                <li key={item.key}>
+                  <Link
+                    to={item.href}
+                    spy={true}
+                    smooth={true}
+                    offset={-80}
+                    duration={500}
+                    onClick={() => setIsOpen(false)}
+                    activeClass="text-[#4a00e0] dark:text-amber-400 font-bold border-l-4 border-[#f59e0b] pl-3"
+                    className="text-slate-700 dark:text-slate-200 font-semibold block uppercase text-sm tracking-wider hover:text-[#4a00e0] dark:hover:text-amber-300 transition-colors py-1"
+                  >
+                    {t(item.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

@@ -348,3 +348,4 @@ export default function ImageModal({ images, videos = [], initialIndex = 0, isOp
   );
 }
 
+
